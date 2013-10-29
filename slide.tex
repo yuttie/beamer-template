@@ -1,0 +1,165 @@
+\documentclass[11pt]{beamer}
+
+% Theme
+% http://hue360.herokuapp.com/
+\definecolor{mybg}{HTML}{FFFFFF}
+\definecolor{mybase}{HTML}{3261AB}
+\definecolor{myred}{HTML}{C7243A}
+\definecolor{myyellow}{HTML}{F6CA06}
+\definecolor{mygreen}{HTML}{A4C520}
+\definecolor{myblue}{HTML}{007FB1}
+\definecolor{mypurple}{HTML}{744199}
+
+%\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{background}}
+\setbeamertemplate{background canvas}[default]
+\setbeamercolor{background canvas}{bg=mybg}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{page number in head/foot}{fg=black}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamercolor{title}{fg=mybase}
+\setbeamertemplate{frametitle}{\begin{centering}\insertframetitle\par\end{centering}}
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{item}{fg=mybase}
+\setbeamercolor{alerted text}{fg=myred}
+\setbeamercolor{example text}{fg=mygreen}
+\setbeamerfont{block title example}{series=\bfseries}
+\setbeamercolor{block title example}{fg=white}
+\setbeamercolor{block body example}{fg=black,bg=mygreen}
+\setbeamertemplate{block example begin}{%
+  \begin{center}%
+    \begin{beamercolorbox}[sep=2mm]{block body example}%
+      {\usebeamercolor[fg]{block title example}\usebeamerfont{block title example}\insertblocktitle}\par%
+      \begin{minipage}{\linewidth - 2mm - 2mm}%
+}
+\setbeamertemplate{block example end}{%
+      \end{minipage}%
+    \end{beamercolorbox}%
+  \end{center}%
+}
+
+
+% Packages
+% \usepackage{luatexja}  % for Japanese
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[pdftex,pdfencoding=auto]{hyperref}
+% \usepackage{algorithm}  % must be behind hyperref
+\usepackage{minted}
+\usemintedstyle{pastie}
+\newminted[html]{html}{bgcolor=black!5,fontsize=\footnotesize,gobble=4,linenos=false,numbersep=6pt}
+
+
+% Font
+% \usepackage{pxfonts}
+% \usepackage{mathpazo}
+% \usepackage{mathpple}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+
+% \usepackage{fontspec}
+% \setmainfont[BoldFont=M+ 1mn bold]{M+ 1mn light}
+% \setsansfont[BoldFont=M+ 1mn bold]{M+ 1mn light}
+% \setmonofont{Ricty}
+
+% \usepackage{luatexja-otf}
+% \usepackage{luatexja-fontspec}
+% \setmainjfont[BoldFont=M+ 1mn bold]{M+ 1mn light}
+% \setsansjfont[BoldFont=M+ 1mn bold]{M+ 1mn light}
+
+
+% Path
+% \graphicspath{{image/}}
+
+
+% Layout Settings
+% \setlength{\voffset}{-0.5in}
+% \addtolength{\textheight}{1.0in}
+% \setlength{\hoffset}{-0.25in}
+% \addtolength{\textwidth}{0.5in}
+
+
+% Floats
+% \setcounter{topnumber}{2}  % max number of floats at top of a page
+% \setcounter{bottomnumber}{1}  % max number of floats at bottom of a page
+% \setcounter{totalnumber}{3}  % max number of floats on a page
+% \setcounter{dbltopnumber}{2}
+% \renewcommand{\topfraction}{0.7}  % max fraction of page for floats at top; the bigger the more floats can be put at top of a page
+% \renewcommand{\bottomfraction}{0.3}  % max fraction of page for floats at bottom; the bigger the more floats can be put at bottom of a page
+% \renewcommand{\textfraction}{0.2}  % min fraction of page for text; smaller value allow LaTeX to put small amount of text on a page
+% \renewcommand{\floatpagefraction}{0.5}  % min fraction of float page that should have floats; bigger value discourages LaTeX from putting a small float on a float page
+% \renewcommand\dbltopfraction{.7}
+% \renewcommand\dblfloatpagefraction{.5}
+
+
+% Bibliography Style
+% \bibliographystyle{plain}
+
+
+% Mathmatical Functions
+% \DeclareMathOperator{\sin}{sin}
+% \DeclareMathOperator{\argmax}{argmax}
+
+
+% Other Commands
+\definecolor{todo-color}{rgb}{1.0,0.0,0.0}
+\newcommand{\todo}[1]{{\textcolor{todo-color}{#1}}}
+\newcommand{\rarrow}{$\Rightarrow$}
+\newcommand{\mathbs}[1]{{\boldsymbol{#1}}}
+% \newcommand{\ud}{{\,\mathrm{d}}}
+\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+% \newenvironment{fminipage}%
+% {\begin{Sbox}\begin{minipage}}%
+%     {\end{minipage}\end{Sbox}\fbox{\TheSbox}}
+
+
+% Document Properties
+\title{Hyper Text Markup Language}
+\subtitle{Web Technology I}
+\author{Yuta Taniguchi}
+\institute{@yuttieyuttie}
+\date{2013-10-29}
+
+
+\begin{document}
+
+
+{%
+  \setbeamertemplate{background canvas}[default]
+  \setbeamercolor{background canvas}{bg=black!10}
+  \setbeamertemplate{footline}{}
+  \frame{\titlepage}
+}
+\setcounter{framenumber}{0}
+
+
+\begin{frame}[fragile]{HTML}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+        \item A markup language
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \begin{html*}{gobble=8}
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="UTF-8" />
+            <title>Title</title>
+          </head>
+          <body>
+            Emphasize
+            <strong id="target">it</strong>!
+          </body>
+        </html>
+      \end{html*}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\end{document}
