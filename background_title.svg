@@ -25,6 +25,10 @@
          offset="0"
          id="stop3802" />
       <stop
+         id="stop4393"
+         offset="0.70454544"
+         style="stop-color:#d0d8df;stop-opacity:1;" />
+      <stop
          style="stop-color:#c7d0d9;stop-opacity:1;"
          offset="1"
          id="stop3804" />
@@ -45,7 +49,7 @@
        xlink:href="#linearGradient3800"
        id="radialGradient3829"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.74999998,0,220.57088)"
+       gradientTransform="matrix(1,0,0,0.71874992,0,247.84701)"
        cx="226.77165"
        cy="872.83459"
        fx="226.77165"
@@ -60,16 +64,16 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1.2815574"
-     inkscape:cx="229.01355"
+     inkscape:cx="90.510195"
      inkscape:cy="168.74136"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="mm"
-     inkscape:window-width="1866"
-     inkscape:window-height="1003"
-     inkscape:window-x="25"
-     inkscape:window-y="48"
+     inkscape:window-width="1916"
+     inkscape:window-height="852"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
      inkscape:window-maximized="0"
      inkscape:snap-bbox="true"
      inkscape:snap-page="true"

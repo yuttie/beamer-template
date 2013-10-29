@@ -25,6 +25,10 @@
          offset="0"
          id="stop3802" />
       <stop
+         id="stop3866"
+         offset="0.70454544"
+         style="stop-color:#e6eaee;stop-opacity:1;" />
+      <stop
          style="stop-color:#dae0e6;stop-opacity:1;"
          offset="1"
          id="stop3804" />
@@ -45,11 +49,11 @@
        xlink:href="#linearGradient3800"
        id="radialGradient3829"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.74999998,0,220.57088)"
+       gradientTransform="matrix(1.4199999,0,0,1.1093748,-95.244078,-135.54978)"
        cx="226.77165"
-       cy="990.94482"
+       cy="990.94489"
        fx="226.77165"
-       fy="990.94482"
+       fy="990.94489"
        r="226.77165" />
   </defs>
   <sodipodi:namedview
@@ -59,15 +63,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.90619792"
-     inkscape:cx="30.898325"
-     inkscape:cy="170.07874"
+     inkscape:zoom="1.7087432"
+     inkscape:cx="207.50598"
+     inkscape:cy="153.11592"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="mm"
      inkscape:window-width="1916"
-     inkscape:window-height="630"
+     inkscape:window-height="852"
      inkscape:window-x="0"
      inkscape:window-y="23"
      inkscape:window-maximized="0"
