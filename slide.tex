@@ -53,17 +53,11 @@
 
 
 % Font
-%\usepackage{newpxtext,newpxmath}  % Palatino
-%\usepackage{tgpagella}            % Palatino
-%\usepackage{mathpazo}             % Palatino (obsolete by Pagella?)
-%\usepackage{newtxtext,newtxmath}  % Times
-%\usepackage{tgtermes}             % Times
-%\usepackage{mathptmx}             % Times (obsolete by Termes?)
-%\usepackage{euler}
-%\usepackage{eulervm}
-
+% We use fontspec's 'main font' (serif font) for math and use the 'sans font'
+% for normal text.
+\usefonttheme[onlymath]{serif}
 \usepackage{fontspec}
-\setmainfont[BoldFont=M+ 1c medium]{M+ 1c light}
+\setmainfont{TeX Gyre Pagella}  % serif font, used only for math
 \setsansfont[BoldFont=M+ 1c medium]{M+ 1c light}
 \setmonofont{Ricty}
 
