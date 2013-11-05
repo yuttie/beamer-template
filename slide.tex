@@ -3,6 +3,7 @@
 % Theme
 % http://hue360.herokuapp.com/
 \definecolor{mybg}{HTML}{FFFFFF}
+\definecolor{mygray}{HTML}{AAAAAA}
 \definecolor{myblack}{HTML}{4D4D4D}
 \definecolor{mystrongblack}{HTML}{333333}
 \definecolor{myred}{HTML}{C7243A}
@@ -26,6 +27,37 @@
 \setbeamercolor{item}{fg=myblue}
 \setbeamercolor{alerted text}{fg=myred}
 \setbeamercolor{example text}{fg=mygreen}
+% block
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamercolor{block title}{fg=white}
+\setbeamercolor{block body}{fg=myblack,bg=mygray}
+\setbeamertemplate{block begin}{%
+  \begin{center}%
+    \begin{beamercolorbox}[sep=2mm]{block body}%
+      {\usebeamercolor[fg]{block title}\usebeamerfont{block title}\insertblocktitle}\par%
+      \begin{minipage}{\linewidth - 2mm - 2mm}%
+}
+\setbeamertemplate{block end}{%
+      \end{minipage}%
+    \end{beamercolorbox}%
+  \end{center}%
+}
+% alert block
+\setbeamerfont{block title alerted}{series=\bfseries}
+\setbeamercolor{block title alerted}{fg=myblack}
+\setbeamercolor{block body alerted}{fg=myblack,bg=myyellow}
+\setbeamertemplate{block alerted begin}{%
+  \begin{center}%
+    \begin{beamercolorbox}[sep=2mm]{block body alerted}%
+      {\usebeamercolor[fg]{block title alerted}\usebeamerfont{block title alerted}\insertblocktitle}\par%
+      \begin{minipage}{\linewidth - 2mm - 2mm}%
+}
+\setbeamertemplate{block alerted end}{%
+      \end{minipage}%
+    \end{beamercolorbox}%
+  \end{center}%
+}
+% example block
 \setbeamerfont{block title example}{series=\bfseries}
 \setbeamercolor{block title example}{fg=white}
 \setbeamercolor{block body example}{fg=myblack,bg=mygreen}
