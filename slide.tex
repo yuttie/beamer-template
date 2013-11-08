@@ -1,89 +1,5 @@
 \documentclass[14pt]{beamer}
-
-% Theme
-\newsavebox{\mybox}
-% http://hue360.herokuapp.com/
-\definecolor{mybg}{HTML}{FFFFFF}
-\definecolor{mygray}{HTML}{c5c5c5}
-\definecolor{myblack}{HTML}{4D4D4D}
-\definecolor{mystrongblack}{HTML}{333333}
-\definecolor{myred}{HTML}{C7243A}
-\definecolor{myyellow}{HTML}{F6CA06}
-\definecolor{mygreen}{HTML}{A4C520}
-\definecolor{myblue}{HTML}{3261AB}
-\definecolor{mypurple}{HTML}{744199}
-
-\setbeamercolor{normal text}{fg=myblack}
-%\setbeamertemplate{background canvas}[default]
-\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{background}}
-\setbeamercolor{background canvas}{bg=mybg}
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
-\setbeamercolor{page number in head/foot}{fg=myblack}
-\setbeamerfont{title}{size=\LARGE,series=\bfseries}
-\setbeamercolor{title}{fg=mystrongblack}
-\setbeamertemplate{frametitle}{\begin{centering}\insertframetitle\par\end{centering}}
-\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
-\setbeamercolor{frametitle}{fg=myblack}
-\setbeamercolor{item}{fg=myblue}
-\setbeamerfont{alerted text}{series=\bfseries}
-\setbeamercolor{alerted text}{fg=myblack,bg=myyellow}
-\setbeamertemplate{alerted text begin}{%
-  \begin{lrbox}{\mybox}%
-}
-\setbeamertemplate{alerted text end}{%
-  \end{lrbox}%
-  \usebeamercolor{alerted text}%
-  \colorbox{bg}{\color{fg}\usebox{\mybox}}%
-}
-% block
-\setbeamerfont{block title}{series=\bfseries}
-\setbeamercolor{block title}{fg=myblack}
-\setbeamercolor{block body}{fg=myblack,bg=mygray}
-\setbeamertemplate{block begin}{%
-  \begin{center}%
-    \begin{beamercolorbox}[sep=2mm]{block body}%
-      {\usebeamercolor[fg]{block title}\usebeamerfont{block title}\insertblocktitle}%
-      \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
-}
-\setbeamertemplate{block end}{%
-      \end{minipage}%
-    \end{beamercolorbox}%
-  \end{center}%
-}
-% alert block
-\setbeamerfont{block title alerted}{series=\bfseries}
-\setbeamercolor{block title alerted}{fg=myblack}
-\setbeamercolor{block body alerted}{fg=myblack,bg=myyellow}
-\setbeamertemplate{block alerted begin}{%
-  \begin{center}%
-    \begin{beamercolorbox}[sep=2mm]{block body alerted}%
-      {\usebeamercolor[fg]{block title alerted}\usebeamerfont{block title alerted}\insertblocktitle}%
-      \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
-}
-\setbeamertemplate{block alerted end}{%
-      \end{minipage}%
-    \end{beamercolorbox}%
-  \end{center}%
-}
-% example block
-\setbeamerfont{block title example}{series=\bfseries}
-\setbeamercolor{block title example}{fg=myblack}
-\setbeamercolor{block body example}{fg=myblack,bg=mygreen}
-\setbeamertemplate{block example begin}{%
-  \begin{center}%
-    \begin{beamercolorbox}[sep=2mm]{block body example}%
-      {\usebeamercolor[fg]{block title example}\usebeamerfont{block title example}\insertblocktitle}%
-      \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
-}
-\setbeamertemplate{block example end}{%
-      \end{minipage}%
-    \end{beamercolorbox}%
-  \end{center}%
-}
+\usetheme{clean}
 
 
 % Packages
@@ -93,33 +9,6 @@
 \usepackage{graphicx}
 \usepackage[pdftex,pdfencoding=auto]{hyperref}
 %\usepackage{algorithm}  % must be behind hyperref
-\usepackage{minted}
-\usemintedstyle{pastie}
-\newminted[html]{html}{bgcolor=black!5,fontsize=\footnotesize,gobble=4,linenos=false,numbersep=6pt}
-
-
-% Font
-% We use fontspec's 'main font' (serif font) for math and use the 'sans font'
-% for normal text.
-\usefonttheme[onlymath]{serif}
-\usepackage{fontspec}
-\setmainfont{TeX Gyre Pagella}  % serif font, used only for math
-%\setsansfont[Scale=MatchLowercase,
-%             BoldFont=Lato Bold,
-%             ItalicFont=Lato Light Italic,
-%             BoldItalicFont=Lato Bold Italic]
-%            {Lato Light}
-\setsansfont[Scale=MatchLowercase,
-             BoldFont=Raleway SemiBold,
-             ItalicFont=Lato Light Italic,
-             BoldItalicFont=Lato Bold Italic]
-            {Raleway Light}
-\setmonofont[Scale=MatchLowercase]{Inconsolata}
-
-%\usepackage{luatexja-otf}
-%\usepackage{luatexja-fontspec}
-%\setmainjfont[BoldFont=M+ 1c medium]{M+ 1c light}
-%\setsansjfont[BoldFont=M+ 1c medium]{M+ 1c light}
 
 
 % Path
