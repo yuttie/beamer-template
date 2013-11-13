@@ -30,6 +30,21 @@
 \setbeamercolor{page number in head/foot}{fg=myblack}
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
 \setbeamercolor{title}{fg=mybrightblack}
+\setbeamertemplate{title page}{%
+  \vskip0pt plus 2fill%
+  {%
+    \usebeamerfont{title}\usebeamercolor{title}%
+    \inserttitle%
+    \ifthenelse{\equal{\insertsubtitle}{}}{}{\vskip0pt{\normalsize\insertsubtitle}}%
+  }%
+  \vskip1.75em%
+  {%
+    \insertauthor%
+    \ifthenelse{\equal{\insertinstitute}{}}{}{\vskip0pt{\footnotesize\insertinstitute}}%
+  }%
+  \vskip0pt plus 1fill%
+  \insertdate%
+}
 \setbeamertemplate{frametitle}{\vspace{1mm}\insertframetitle\par}
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myblue}
