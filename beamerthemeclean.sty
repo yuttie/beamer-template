@@ -35,12 +35,20 @@
   {%
     \usebeamerfont{title}\usebeamercolor[fg]{title}%
     \inserttitle%
-    \ifthenelse{\equal{\insertsubtitle}{}}{}{\vskip0pt{\normalsize\insertsubtitle}}%
+    \ifx\insertsubtitle\empty%
+    \else%
+      \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
+      \vskip0pt%
+      \insertsubtitle%
+    \fi%
   }%
   \vskip1.75em%
   {%
     \insertauthor%
-    \ifthenelse{\equal{\insertinstitute}{}}{}{\vskip0pt{\footnotesize\insertinstitute}}%
+    \ifx\insertinstitute\empty%
+    \else%
+      \vskip0pt{\footnotesize\insertinstitute}%
+    \fi%
   }%
   \vskip0pt plus 1fill%
   \insertdate%
