@@ -33,25 +33,29 @@
 \setbeamertemplate{title page}{%
   \vskip0pt plus 2fill%
   {%
-    \usebeamerfont{title}\usebeamercolor[fg]{title}%
+    \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
     \inserttitle\par%
     \ifx\insertsubtitle\empty%
     \else%
-      \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
-      \vskip0pt%
+      \linespread{0.8}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
+      \vskip0.5em%
       \insertsubtitle\par%
     \fi%
   }%
   \vskip1.75em%
   {%
+    \linespread{0.8}\selectfont%
     \insertauthor\par%
     \ifx\insertinstitute\empty%
     \else%
-      \vskip0pt{\footnotesize\insertinstitute\par}%
+      \vskip0.5em%
+      \linespread{0.8}\selectfont%
+      {\footnotesize\insertinstitute\par}%
     \fi%
   }%
-  \vskip0pt plus 1fill%
+  \vskip1.75em%
   \insertdate\par%
+  \vskip0pt plus 1fill%
 }
 \setbeamertemplate{frametitle}{\vspace{1mm}\insertframetitle\par}
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
