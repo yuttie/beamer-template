@@ -63,10 +63,11 @@
 \setbeamercolor{item}{fg=myblue}
 \setbeamertemplate{itemize item}{\tiny\raise1.75pt\hbox{$\blacksquare$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1.5pt\hbox{$\blacktriangleright$}}
-\setbeamertemplate{itemize/enumerate body begin}{\bfseries\color{mybrightblack}}
+\setbeamertemplate{itemize/enumerate body begin}{\bfseries\color{mybrightblack}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\mdseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
 \setbeamerfont{description item}{series=\bfseries}
+\setbeamertemplate{enumerate subitem}{\usebeamercolor[fg]{enumerate item}\usebeamerfont{enumerate item}\alph{enumii}.}
 \setbeamerfont{alerted text}{series=\bfseries}
 \setbeamercolor{alerted text}{fg=myred}
 % block
