@@ -26,8 +26,19 @@
 \setbeamertemplate{background canvas}[default]
 \setbeamercolor{background canvas}{bg=mybg}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=2mm,right]{}%
+      \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}%
+      \insertframenumber%
+      \hspace*{1mm}%
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
 \setbeamercolor{page number in head/foot}{fg=myblack}
+\setbeamerfont{page number in head/foot}{size=\footnotesize}
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
 \setbeamercolor{title}{fg=mybrightblack}
 \setbeamertemplate{title page}{%
