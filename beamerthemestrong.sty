@@ -93,48 +93,42 @@
 \setbeamercolor{block title}{fg=mybrightblack}
 \setbeamercolor{block body}{fg=myblack,bg=mygray!50}
 \setbeamertemplate{block begin}{%
-  \begin{center}%
-    \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
-      {\usebeamercolor[fg]{block title}\usebeamerfont{block title}\insertblocktitle}%
-      \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
+  \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
+    {\usebeamercolor[fg]{block title}\usebeamerfont{block title}\insertblocktitle}%
+    \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
+    \begin{minipage}{\linewidth - 2mm - 2mm}%
 }
 \setbeamertemplate{block end}{%
-      \end{minipage}%
-    \end{beamercolorbox}%
-  \end{center}%
+    \end{minipage}%
+  \end{beamercolorbox}%
 }
 % alert block
 \setbeamerfont{block title alerted}{series=\bfseries}
 \setbeamercolor{block title alerted}{fg=mybrightblack}
 \setbeamercolor{block body alerted}{fg=myblack,bg=myyellow!70}
 \setbeamertemplate{block alerted begin}{%
-  \begin{center}%
-    \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
-      {\usebeamercolor[fg]{block title alerted}\usebeamerfont{block title alerted}\insertblocktitle}%
-      \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
+  \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
+    {\usebeamercolor[fg]{block title alerted}\usebeamerfont{block title alerted}\insertblocktitle}%
+    \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
+    \begin{minipage}{\linewidth - 2mm - 2mm}%
 }
 \setbeamertemplate{block alerted end}{%
-      \end{minipage}%
-    \end{beamercolorbox}%
-  \end{center}%
+    \end{minipage}%
+  \end{beamercolorbox}%
 }
 % example block
 \setbeamerfont{block title example}{series=\bfseries}
 \setbeamercolor{block title example}{fg=mybrightblack}
 \setbeamercolor{block body example}{fg=myblack,bg=myblue!25}
 \setbeamertemplate{block example begin}{%
-  \begin{center}%
-    \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
-      {\usebeamercolor[fg]{block title example}\usebeamerfont{block title example}\insertblocktitle}%
-      \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
+  \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
+    {\usebeamercolor[fg]{block title example}\usebeamerfont{block title example}\insertblocktitle}%
+    \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
+    \begin{minipage}{\linewidth - 2mm - 2mm}%
 }
 \setbeamertemplate{block example end}{%
-      \end{minipage}%
-    \end{beamercolorbox}%
-  \end{center}%
+    \end{minipage}%
+  \end{beamercolorbox}%
 }
 
 
