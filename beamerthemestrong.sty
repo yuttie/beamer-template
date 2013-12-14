@@ -93,7 +93,7 @@
 \setbeamercolor{block title}{fg=mybrightblack}
 \setbeamercolor{block body}{fg=myblack,bg=mygray!50}
 \setbeamertemplate{block begin}{%
-  \mbox{%
+  \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
       {\usebeamercolor[fg]{block title}\usebeamerfont{block title}\insertblocktitle}%
       \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
@@ -102,14 +102,14 @@
 \setbeamertemplate{block end}{%
       \end{minipage}%
     \end{beamercolorbox}%
-  }%
+  \egroup%
 }
 % alert block
 \setbeamerfont{block title alerted}{series=\bfseries}
 \setbeamercolor{block title alerted}{fg=mybrightblack}
 \setbeamercolor{block body alerted}{fg=myblack,bg=myyellow!70}
 \setbeamertemplate{block alerted begin}{%
-  \mbox{%
+  \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
       {\usebeamercolor[fg]{block title alerted}\usebeamerfont{block title alerted}\insertblocktitle}%
       \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
@@ -118,14 +118,14 @@
 \setbeamertemplate{block alerted end}{%
       \end{minipage}%
     \end{beamercolorbox}%
-  }%
+  \egroup%
 }
 % example block
 \setbeamerfont{block title example}{series=\bfseries}
 \setbeamercolor{block title example}{fg=mybrightblack}
 \setbeamercolor{block body example}{fg=myblack,bg=myblue!25}
 \setbeamertemplate{block example begin}{%
-  \mbox{%
+  \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
       {\usebeamercolor[fg]{block title example}\usebeamerfont{block title example}\insertblocktitle}%
       \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
@@ -134,7 +134,7 @@
 \setbeamertemplate{block example end}{%
       \end{minipage}%
     \end{beamercolorbox}%
-  }%
+  \egroup%
 }
 
 
