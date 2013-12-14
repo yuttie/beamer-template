@@ -25,8 +25,8 @@
 
 
 % Document Properties
-\title{Hyper Text Markup Language}
-\subtitle{Web Technology I}
+\title{Beamer Strong Theme}
+\subtitle{A theme designed with contrast in mind}
 \author{Yuta Taniguchi}
 \institute{@yuttieyuttie}
 \date{2013-10-29}
@@ -42,7 +42,7 @@
 \setcounter{framenumber}{0}
 
 
-\begin{frame}{Basic}
+\begin{frame}{Basic Structures}
   \begin{itemize}
   \item AAA
     \begin{itemize}
@@ -68,27 +68,27 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{HTML}
+\begin{frame}[fragile]{Math \& Code}
   \begin{columns}
-    \begin{column}{0.4\textwidth}
+    \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item A \emph{markup} language
-        \item Not related to complex expressions such as
-          $e^{ix} = \cos x + i \sin x$ or
-          $\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt$
+      \item $e^{ix} = \cos x + i \sin x$
+      \item $\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt$
       \end{itemize}
     \end{column}
-    \begin{column}{0.6\textwidth}
+    \begin{column}{0.5\textwidth}
       \begin{html*}{gobble=8}
         <!DOCTYPE html>
         <html>
           <head>
             <meta charset="UTF-8" />
-            <title>Title</title>
+            <title>Example of Code</title>
           </head>
           <body>
-            Emphasize
-            <strong id="target">it</strong>!
+            Syntax highlight by
+            <strong class="package">
+              minted
+            </strong>!
           </body>
         </html>
       \end{html*}
