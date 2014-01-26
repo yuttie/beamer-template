@@ -2,6 +2,12 @@
 \ProvidesPackage{beamerthemestrong}[2013/11/08 A strong theme for the Beamer class]
 
 % Options
+\def\@fontlato{lato}
+\def\@fontraleway{raleway}
+\edef\@mainfont{\@fontraleway}
+\DeclareOption{lato}{\edef\@mainfont{\@fontlato}}
+\DeclareOption{raleway}{\edef\@mainfont{\@fontraleway}}
+
 \newif\if@usejafonts\@usejafontsfalse
 \DeclareOption{ja}{\@usejafontstrue}
 
@@ -153,18 +159,21 @@
 \usefonttheme[onlymath]{serif}
 \RequirePackage{fontspec}
 \setmainfont{TeX Gyre Pagella}  % serif font, used only for math
-%\setsansfont[Scale=MatchLowercase,
-%             Numbers={Proportional,Lining},
-%             BoldFont=Lato Black,
-%             ItalicFont=Lato Light Italic,
-%             BoldItalicFont=Lato Black Italic]
-%            {Lato Light}
-\setsansfont[Scale=MatchLowercase,
-             Numbers={Proportional,Lining},
-             BoldFont=Raleway ExtraBold,
-             ItalicFont=Lato Light Italic,
-             BoldItalicFont=Lato Black Italic]
-            {Raleway Light}
+\ifx\@mainfont\@fontlato
+  \setsansfont[Scale=MatchLowercase,
+               Numbers={Proportional,Lining},
+               BoldFont=Lato Black,
+               ItalicFont=Lato Light Italic,
+               BoldItalicFont=Lato Black Italic]
+              {Lato Light}
+\else\ifx\@mainfont\@fontraleway
+  \setsansfont[Scale=MatchLowercase,
+               Numbers={Proportional,Lining},
+               BoldFont=Raleway ExtraBold,
+               ItalicFont=Lato Light Italic,
+               BoldItalicFont=Lato Black Italic]
+              {Raleway Light}
+\fi\fi
 \setmonofont[Scale=MatchLowercase]{Inconsolata}
 
 \if@usejafonts
