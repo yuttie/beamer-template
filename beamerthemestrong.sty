@@ -1,6 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemestrong}[2013/11/08 A strong theme for the Beamer class]
 
+% Options
+\newif\if@usejafonts\@usejafontsfalse
+\DeclareOption{ja}{\@usejafontstrue}
+
+\DeclareOption*{\PackageWarning{beamerthemestrong}{Unknown option `\CurrentOption'}}
+
+\ProcessOptions\relax
+
+
 \newsavebox{\mybox}
 
 % Lengths and Sizes
@@ -158,9 +167,11 @@
             {Raleway Light}
 \setmonofont[Scale=MatchLowercase]{Inconsolata}
 
-%\RequirePackage{luatexja-fontspec}
-%\setmainjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
-%\setsansjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
+\if@usejafonts
+  \RequirePackage{luatexja-fontspec}
+  \setmainjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
+  \setsansjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
+\fi
 
 
 % Highlighting
