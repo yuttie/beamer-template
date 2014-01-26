@@ -4,8 +4,20 @@ A "Strong" Theme for LaTeX Beamer
 
 Requirements
 ------------
-* Beamer package
+Compiler:
 * LuaLaTeX
+
+Packages:
+* Beamer package
+* fontspec package
+* minted package
+
+Fonts:
+* Lato, Raleway and Inconsolata fonts
+
+(optional) Japanese support:
+* luatexja-fontspec package
+* M+ fonts
 
 
 Build
