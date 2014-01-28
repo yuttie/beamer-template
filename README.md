@@ -35,3 +35,16 @@ For continuous build with `latexmk`, the following works:
 ```sh
 latexmk -pvc -pdf -pdflatex="lualatex -interaction=nonstopmode -shell-escape" slide
 ```
+
+
+Usage
+-----
+See `slide.tex`.
+
+
+### Japanese Fonts
+To use Japanese in your slides, you need to pass the `ja` option to the 'strong'
+theme package as follows:
+```tex
+\usetheme[ja]{strong}
+```
