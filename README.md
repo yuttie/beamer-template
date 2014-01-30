@@ -22,24 +22,24 @@ Fonts:
 
 Build
 -----
-You can compile the slide using the following command line:
+You can compile the slides using the following command line:
 ```sh
-lualatex -shell-escape slide
+lualatex -shell-escape slides
 ```
 or with `latexmk`:
 ```sh
-latexmk -pdf -pdflatex="lualatex -shell-escape" slide
+latexmk -pdf -pdflatex="lualatex -shell-escape" slides
 ```
 
 For continuous build with `latexmk`, the following works:
 ```sh
-latexmk -pvc -pdf -pdflatex="lualatex -interaction=nonstopmode -shell-escape" slide
+latexmk -pvc -pdf -pdflatex="lualatex -interaction=nonstopmode -shell-escape" slides
 ```
 
 
 Usage
 -----
-See `slide.tex`.
+See `slides.tex`.
 
 
 ### Japanese Fonts
