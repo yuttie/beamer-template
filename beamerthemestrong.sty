@@ -92,12 +92,12 @@
 \setbeamertemplate{frametitle}{\vspace{1mm}\insertframetitle\par}
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myblue}
-\setbeamertemplate{section in toc}{\inserttocsectionnumber. \inserttocsection\par}
+\setbeamertemplate{section in toc}{\makebox[1em]{> }\inserttocsection\par}
 \setbeamerfont{section in toc}{size=\large,series=\bfseries}
 \setbeamercolor{section in toc}{fg=mybrightblack}
-\setbeamertemplate{section in toc shaded}{\inserttocsectionnumber. \inserttocsection\par}
-\setbeamerfont{section in toc shaded}{size=\large,series=\bfseries}
-\setbeamercolor{section in toc shaded}{fg=mybrightblack!40}
+\setbeamertemplate{section in toc shaded}{\makebox[1em]{}\inserttocsection\par}
+\setbeamerfont{section in toc shaded}{size=\large,series=\mdseries}
+\setbeamercolor{section in toc shaded}{fg=mybrightblack}
 \setbeamercolor{item}{fg=myblue}
 \setbeamertemplate{itemize item}{\tiny\raise1.75pt\hbox{$\blacksquare$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1.5pt\hbox{$\blacktriangleright$}}
