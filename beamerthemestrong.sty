@@ -1,6 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemestrong}[2013/11/08 A strong theme for the Beamer class]
 
+% Packages
+\RequirePackage{tikz}
 % Options
 \def\@fontlato{lato}
 \def\@fontraleway{raleway}
@@ -90,7 +92,18 @@
   \insertdate\par%
   \vskip0pt plus 1fill%
 }
-\setbeamertemplate{frametitle}{\vspace{1mm}\insertframetitle\par}
+\setbeamertemplate{frametitle}{%
+  \vspace{1mm}%
+  \tikz[scale=0.75]{
+    \fill[fill=mymain1]   (0.00em, 0.00em) rectangle (0.45em, 0.45em);
+    \fill[fill=myaccent1] (0.55em, 0.00em) rectangle (1.00em, 0.45em);
+    \fill[fill=myaccent1] (0.00em, 0.55em) rectangle (0.45em, 1.00em);
+    \fill[fill=mymain1]   (0.55em, 0.55em) rectangle (1.00em, 1.00em);
+  }%
+  \hspace{0.3em}%
+  \insertframetitle%
+  \par%
+}
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myfg}
 \setbeamertemplate{section in toc}{\makebox[1em]{> }\inserttocsection\par}
