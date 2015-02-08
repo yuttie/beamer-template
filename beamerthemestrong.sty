@@ -34,16 +34,17 @@
 
 % Basic colors chosen by using http://hue360.herokuapp.com/
 \definecolor{mybg}{HTML}{FFFFFF}
-\definecolor{mygray}{HTML}{C5C5C5}
-\definecolor{mybrightblack}{HTML}{333333}
-\definecolor{myblack}{HTML}{000000}
-\definecolor{myred}{HTML}{C7243A}
-\definecolor{myyellow}{HTML}{F6CA06}
-\definecolor{mygreen}{HTML}{A4C520}
-\definecolor{myblue}{HTML}{3261AB}
-\definecolor{mypurple}{HTML}{744199}
+\definecolor{myfg}{HTML}{333333}
+\definecolor{mymain1}{HTML}{0086AB}
+\definecolor{mymain2}{HTML}{42AAC7}
+\definecolor{mymain3}{HTML}{97D3E3}
+\definecolor{mymain4}{HTML}{C9E8F1}
+\definecolor{myaccent1}{HTML}{EDAD0B}
+\definecolor{myaccent2}{HTML}{F3C759}
+\definecolor{myaccent3}{HTML}{F9E3AA}
+\definecolor{myaccent4}{HTML}{FCF1D3}
 
-\setbeamercolor{normal text}{fg=myblack}
+\setbeamercolor{normal text}{fg=myfg}
 \setbeamertemplate{background canvas}[default]
 \setbeamercolor{background canvas}{bg=mybg}
 \setbeamertemplate{navigation symbols}{}
@@ -58,10 +59,10 @@
   }%
   \vskip0pt%
 }
-\setbeamercolor{page number in head/foot}{fg=myblack}
+\setbeamercolor{page number in head/foot}{fg=mymain3}
 \setbeamerfont{page number in head/foot}{size=\footnotesize}
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
-\setbeamercolor{title}{fg=mybrightblack}
+\setbeamercolor{title}{fg=mymain1}
 \setbeamertemplate{title page}{%
   \vskip0pt plus 4fill%
   {%
@@ -91,28 +92,28 @@
 }
 \setbeamertemplate{frametitle}{\vspace{1mm}\insertframetitle\par}
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
-\setbeamercolor{frametitle}{fg=myblue}
+\setbeamercolor{frametitle}{fg=myfg}
 \setbeamertemplate{section in toc}{\makebox[1em]{> }\inserttocsection\par}
 \setbeamerfont{section in toc}{size=\large,series=\bfseries}
-\setbeamercolor{section in toc}{fg=mybrightblack}
+\setbeamercolor{section in toc}{fg=mymain1}
 \setbeamertemplate{section in toc shaded}{\makebox[1em]{}\inserttocsection\par}
 \setbeamerfont{section in toc shaded}{size=\large,series=\mdseries}
-\setbeamercolor{section in toc shaded}{fg=mybrightblack}
-\setbeamercolor{item}{fg=myblue}
+\setbeamercolor{section in toc shaded}{fg=myfg}
+\setbeamercolor{item}{fg=mymain1}
 \setbeamertemplate{itemize item}{\tiny\raise1.75pt\hbox{$\blacksquare$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1.5pt\hbox{$\blacktriangleright$}}
-\setbeamertemplate{itemize/enumerate body begin}{\bfseries\color{mybrightblack}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
+\setbeamertemplate{itemize/enumerate body begin}{\bfseries\color{myfg}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\mdseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
 \setbeamerfont{enumerate subitem}{series=\bfseries}
 \setbeamerfont{description item}{series=\bfseries}
 \setbeamertemplate{enumerate subitem}{\usebeamercolor[fg]{enumerate item}\usebeamerfont{enumerate item}\alph{enumii}.}
 \setbeamerfont{alerted text}{series=\bfseries}
-\setbeamercolor{alerted text}{fg=myred}
+\setbeamercolor{alerted text}{fg=myaccent1}
 % block
 \setbeamerfont{block title}{series=\bfseries}
-\setbeamercolor{block title}{fg=mybrightblack}
-\setbeamercolor{block body}{fg=myblack,bg=mygray!50}
+\setbeamercolor{block title}{fg=myfg}
+\setbeamercolor{block body}{fg=myfg,bg=mybg!80!black}
 \setbeamertemplate{block begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
@@ -127,8 +128,8 @@
 }
 % alert block
 \setbeamerfont{block title alerted}{series=\bfseries}
-\setbeamercolor{block title alerted}{fg=mybrightblack}
-\setbeamercolor{block body alerted}{fg=myblack,bg=myyellow}
+\setbeamercolor{block title alerted}{fg=myfg}
+\setbeamercolor{block body alerted}{fg=myfg,bg=myaccent2}
 \setbeamertemplate{block alerted begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
@@ -143,8 +144,8 @@
 }
 % example block
 \setbeamerfont{block title example}{series=\bfseries}
-\setbeamercolor{block title example}{fg=mybrightblack}
-\setbeamercolor{block body example}{fg=myblack,bg=myblue!25}
+\setbeamercolor{block title example}{fg=myfg}
+\setbeamercolor{block body example}{fg=myfg,bg=mymain3}
 \setbeamertemplate{block example begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
