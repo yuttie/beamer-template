@@ -3,6 +3,8 @@
 
 % Packages
 \RequirePackage{tikz}
+\usetikzlibrary{patterns}
+
 % Options
 \def\@fontlato{lato}
 \def\@fontraleway{raleway}
@@ -66,31 +68,72 @@
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
 \setbeamercolor{title}{fg=mymain1}
 \setbeamertemplate{title page}{%
-  \vskip0pt plus 4fill%
-  {%
-    \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
-    \inserttitle\par%
-    \ifx\insertsubtitle\empty%
-    \else%
-      \linespread{0.8}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
-      \vskip0.5em%
-      \insertsubtitle\par%
-    \fi%
-  }%
-  \vskip4em
-  {%
-    \linespread{0.8}\selectfont%
-    {\large\insertauthor\par}%
-    \ifx\insertinstitute\empty%
-    \else%
-      \vskip0.5em%
-      \linespread{0.8}\selectfont%
-      {\footnotesize\insertinstitute\par}%
-    \fi%
-  }%
-  \vskip1.5em%
-  \insertdate\par%
-  \vskip0pt plus 1fill%
+  % \tikz{\fill[fill=mymain1] (0.00em, 0.00em) rectangle (12.00em, 0.20em);\fill[fill=myaccent1] (12.00em, 0.00em) rectangle (24.00em, 0.20em);}%
+  % \begin{tikzpicture}[remember picture, overlay]%
+  %   \fill[fill=mymain1] (0.00em, 0.00em) rectangle (12.00em, 0.20em);%
+  %   \fill[fill=myaccent1] (12.00em, 0.00em) rectangle (24.00em, 0.20em);%
+  % \end{tikzpicture}%
+  \begin{tikzpicture}[remember picture, overlay]%
+    \clip (current page.north west) rectangle (current page.south east);
+    % ribbons
+    \begin{scope}[shift={(current page.north west)}]
+      \begin{scope}[shift={(2cm, -1cm)}]
+        \fill    [rotate=30, fill=myaccent3]                              (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+      \begin{scope}[shift={(2cm, -1cm)}]
+        \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=15, pattern=checkerboard, pattern color=mymain4] (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+    \end{scope}
+    \begin{scope}[shift={(current page.south east)}]
+      \begin{scope}[shift={(-2cm, 1cm)}]
+        \fill    [rotate=30, fill=myaccent3]                              (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+      \begin{scope}[shift={(-2cm, 1cm)}]
+        \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=15, pattern=checkerboard, pattern color=mymain4] (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+    \end{scope}
+    % center line
+    \draw [draw=myaccent1, ultra thick] (current page.west) -- (current page.east);
+    % title
+    \node (title) at (current page.center) [above]
+    {
+      \begin{minipage}{\linewidth}
+        \centering
+        \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
+        \inserttitle\par%
+        \ifx\insertsubtitle\empty%
+        \else%
+          \linespread{0.8}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
+          \insertsubtitle\par%
+        \fi%
+      \end{minipage}
+    };
+    % author
+    \node (author) at (current page.center) [below=5mm]
+    {
+      \begin{minipage}{\linewidth}
+        \centering
+        \linespread{0.8}\selectfont%
+        {\large\insertauthor\par}%
+        \ifx\insertinstitute\empty%
+        \else%
+          \vskip0.5em%
+          \linespread{0.8}\selectfont%
+          {\footnotesize\insertinstitute\par}%
+        \fi%
+      \end{minipage}
+    };
+    % date
+    \node (date) at (author) [below=15mm]
+    {
+      \begin{minipage}{\linewidth}
+        \centering
+        {\footnotesize\insertdate\par}%
+      \end{minipage}
+    };
+  \end{tikzpicture}%
 }
 \setbeamertemplate{frametitle}{%
   \vspace{1mm}%
