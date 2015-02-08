@@ -136,16 +136,11 @@
   \end{tikzpicture}%
 }
 \setbeamertemplate{frametitle}{%
-  \vspace{1mm}%
-  \tikz[scale=0.75]{
-    \fill[fill=myaccent1] (0.00em, 0.00em) rectangle (0.45em, 0.45em);
-    \fill[fill=mymain1]   (0.55em, 0.00em) rectangle (1.00em, 0.45em);
-    \fill[fill=mymain1]   (0.00em, 0.55em) rectangle (0.45em, 1.00em);
-    \fill[fill=myaccent1] (0.55em, 0.55em) rectangle (1.00em, 1.00em);
-  }%
-  \hspace{0.3em}%
-  \insertframetitle%
-  \par%
+  \begin{tikzpicture}[remember picture, overlay]%
+      \node [yshift=-10mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3!50!mymain4]                     {\hspace{0.5em}\insertframetitle};
+      \node [yshift=-10mm] at (current page.north west) [right, text width=\paperwidth, pattern=checkerboard, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
+  \end{tikzpicture}
+  \vskip 8mm
 }
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myfg}
