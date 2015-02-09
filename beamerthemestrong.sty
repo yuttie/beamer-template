@@ -3,6 +3,7 @@
 
 % Packages
 \RequirePackage{tikz}
+\usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 
 % Options
@@ -52,19 +53,28 @@
 \setbeamertemplate{background canvas}[default]
 \setbeamercolor{background canvas}{bg=mybg}
 \setbeamertemplate{navigation symbols}{}
+\setbeamercolor{page number in head/foot}{fg=mymain4}
+\setbeamerfont{page number in head/foot}{size=\LARGE,series=\bfseries}
 \setbeamertemplate{footline}{%
-  \leavevmode%
-  \hbox{%
-    \begin{beamercolorbox}[wd=\paperwidth,sep=2mm,right]{}%
-      \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}%
+  \begin{tikzpicture}[overlay]
+    % progress bar
+    \begin{scope}
+      \pgfmathparse{\insertframenumber / \inserttotalframenumber}
+      \let\fraction=\pgfmathresult
+      \coordinate (bottom left) at (current page.south west);
+      \coordinate (top left)  at ([yshift=2pt] current page.south west);
+      \coordinate (top right) at ([yshift=2pt] current page.south east);
+      \coordinate (p) at ($ (top left)!\fraction!(top right) $);
+      \fill[fill=myaccent2] (bottom left) rectangle (p);
+    \end{scope}
+    % frame numbers
+    \node at ([shift={(-2mm,1mm)}] current page.south east) [above left] {%
+      \usebeamercolor[fg]{page number in head/foot}%
+      \usebeamerfont{page number in head/foot}%
       \insertframenumber%
-      \hspace*{1mm}%
-    \end{beamercolorbox}%
-  }%
-  \vskip0pt%
+    };
+  \end{tikzpicture}
 }
-\setbeamercolor{page number in head/foot}{fg=mymain3}
-\setbeamerfont{page number in head/foot}{size=\footnotesize}
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
 \setbeamercolor{title}{fg=mymain1}
 \setbeamertemplate{title page}{%
