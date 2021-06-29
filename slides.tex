@@ -1,4 +1,4 @@
-\documentclass[14pt,t,hyperref={pdfencoding=auto}]{beamer}
+\documentclass[12pt,t,hyperref={pdfencoding=auto}]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usetheme{strong}
@@ -10,6 +10,23 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 %\usepackage{algorithm}  % must be behind hyperref
+
+
+% Font
+\usefonttheme[onlymath]{serif}  % Use 'serif' font for math
+\usepackage{fontspec}
+\setsansfont[%
+  Scale=MatchLowercase,
+  Numbers={Proportional,Lining},
+  BoldFont=Lato Regular,
+  ItalicFont=Lato Light Italic,
+  BoldItalicFont=Lato Italic]
+  {Lato Light}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+% For Japanese
+\usepackage{luatexja-fontspec}
+\setmainjfont[Scale=0.8,BoldFont=Harano Aji Gothic Regular]{Harano Aji Gothic Light}
+\setsansjfont[Scale=0.8,BoldFont=Harano Aji Gothic Regular]{Harano Aji Gothic Light}
 
 
 % Path
@@ -26,9 +43,9 @@
 
 
 % Document Properties
-\title{Beamer Strong Theme}
+\title[Strong Theme]{Beamer Theme\\--- Strong Theme ---}
 \subtitle{A theme designed with contrast in mind}
-\author{Yuta Taniguchi}
+\author[Y.~Taniguchi]{Yuta Taniguchi}
 \institute{@yuttieyuttie}
 \date{2013-10-29}
 
@@ -44,32 +61,32 @@
 
 
 \begin{frame}{Table of Contents}
-  \setbeamertemplate{section in toc}{\makebox[1em]{}\inserttocsection\par}
-  \tableofcontents
+  \toc
 \end{frame}
 
 
 \section{Introduction}
 \begin{frame}{Table of Contents}
-  \tableofcontents[currentsection]
+  \toc[currentsection]
 \end{frame}
 
 
 \begin{frame}{What's this?}
-  A "Strong" Theme for LaTeX Beamer
+  \alert{A "Strong" Theme for LaTeX Beamer}
   \begin{itemize}
-  \item Designed with contrast in mind
+    \item Contrast in mind
+    \item Cute
   \end{itemize}
 \end{frame}
 
 
-\section{Tutorial}
+\section{Examples}
 \begin{frame}{Table of Contents}
-  \tableofcontents[currentsection]
+  \toc[currentsection]
 \end{frame}
 
 
-\begin{frame}{Basic Structures}
+\begin{frame}{Basic Structures: Bullet List}
   \begin{itemize}
   \item AAA
     \begin{itemize}
@@ -78,6 +95,10 @@
     \end{itemize}
   \item BBB
   \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Basic Structures: Enumeration}
   \begin{enumerate}
   \item Alpha
     \begin{enumerate}
@@ -88,6 +109,10 @@
   \item Beta
   \item Gamma
   \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Basic Structures: Descriptions}
   \begin{description}
   \item[Abc] basic
   \item[Xyz] extra

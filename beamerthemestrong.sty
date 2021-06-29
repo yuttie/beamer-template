@@ -1,16 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemestrong}[2013/11/08 A strong theme for the Beamer class]
 
+% Packages
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns}
+
 % Options
-\def\@fontlato{lato}
-\def\@fontraleway{raleway}
-\edef\@mainfont{\@fontraleway}
-\DeclareOption{lato}{\edef\@mainfont{\@fontlato}}
-\DeclareOption{raleway}{\edef\@mainfont{\@fontraleway}}
-
-\newif\if@usejafonts\@usejafontsfalse
-\DeclareOption{ja}{\@usejafontstrue}
-
 \DeclareOption*{\PackageWarning{beamerthemestrong}{Unknown option `\CurrentOption'}}
 
 \ProcessOptions\relax
@@ -34,85 +30,155 @@
 
 % Basic colors chosen by using http://hue360.herokuapp.com/
 \definecolor{mybg}{HTML}{FFFFFF}
-\definecolor{mygray}{HTML}{C5C5C5}
-\definecolor{mybrightblack}{HTML}{333333}
-\definecolor{myblack}{HTML}{000000}
-\definecolor{myred}{HTML}{C7243A}
-\definecolor{myyellow}{HTML}{F6CA06}
-\definecolor{mygreen}{HTML}{A4C520}
-\definecolor{myblue}{HTML}{3261AB}
-\definecolor{mypurple}{HTML}{744199}
+\definecolor{myfg}{HTML}{444444}
+\definecolor{mymain1}{HTML}{0086AB}
+\definecolor{mymain2}{HTML}{42AAC7}
+\definecolor{mymain3}{HTML}{97D3E3}
+\definecolor{mymain4}{HTML}{C9E8F1}
+\definecolor{myaccent1}{HTML}{EDAD0B}
+\definecolor{myaccent2}{HTML}{F3C759}
+\definecolor{myaccent3}{HTML}{F9E3AA}
+\definecolor{myaccent4}{HTML}{FCF1D3}
 
-\setbeamercolor{normal text}{fg=myblack}
+\setbeamercolor{normal text}{fg=myfg}
 \setbeamertemplate{background canvas}[default]
 \setbeamercolor{background canvas}{bg=mybg}
 \setbeamertemplate{navigation symbols}{}
+\setbeamercolor{page number in head/foot}{fg=mymain2}
+\setbeamerfont{page number in head/foot}{size=\normalsize,series=\mdseries}
 \setbeamertemplate{footline}{%
-  \leavevmode%
-  \hbox{%
-    \begin{beamercolorbox}[wd=\paperwidth,sep=2mm,right]{}%
-      \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}%
+  \begin{tikzpicture}[overlay]
+    % progress bar
+    \begin{scope}
+      \pgfmathparse{\insertframenumber / \inserttotalframenumber}
+      \let\fraction=\pgfmathresult
+      \coordinate (bottom left) at (current page.south west);
+      \coordinate (top left)  at ([yshift=2pt] current page.south west);
+      \coordinate (top right) at ([yshift=2pt] current page.south east);
+      \coordinate (p) at ($ (top left)!\fraction!(top right) $);
+      \fill[fill=myaccent3] (bottom left) rectangle (p);
+    \end{scope}
+    % frame numbers
+    \node at ([shift={(-2mm,1mm)}] current page.south east) [above left] {%
+      \usebeamercolor[fg]{page number in head/foot}%
+      \usebeamerfont{page number in head/foot}%
       \insertframenumber%
-      \hspace*{1mm}%
-    \end{beamercolorbox}%
-  }%
-  \vskip0pt%
+    };
+  \end{tikzpicture}
 }
-\setbeamercolor{page number in head/foot}{fg=myblack}
-\setbeamerfont{page number in head/foot}{size=\footnotesize}
-\setbeamerfont{title}{size=\LARGE,series=\bfseries}
-\setbeamercolor{title}{fg=mybrightblack}
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamercolor{title}{fg=mymain1}
 \setbeamertemplate{title page}{%
-  \vskip0pt plus 4fill%
-  {%
-    \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
-    \inserttitle\par%
-    \ifx\insertsubtitle\empty%
-    \else%
-      \linespread{0.8}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
-      \vskip0.5em%
-      \insertsubtitle\par%
-    \fi%
-  }%
-  \vskip4em
-  {%
-    \linespread{0.8}\selectfont%
-    {\large\insertauthor\par}%
-    \ifx\insertinstitute\empty%
-    \else%
-      \vskip0.5em%
-      \linespread{0.8}\selectfont%
-      {\footnotesize\insertinstitute\par}%
-    \fi%
-  }%
-  \vskip1.5em%
-  \insertdate\par%
-  \vskip0pt plus 1fill%
+  % \tikz{\fill[fill=mymain1] (0.00em, 0.00em) rectangle (12.00em, 0.20em);\fill[fill=myaccent1] (12.00em, 0.00em) rectangle (24.00em, 0.20em);}%
+  % \begin{tikzpicture}[remember picture, overlay]%
+  %   \fill[fill=mymain1] (0.00em, 0.00em) rectangle (12.00em, 0.20em);%
+  %   \fill[fill=myaccent1] (12.00em, 0.00em) rectangle (24.00em, 0.20em);%
+  % \end{tikzpicture}%
+  \begin{tikzpicture}[remember picture, overlay]%
+    \clip (current page.north west) rectangle (current page.south east);
+    % ribbons
+    \begin{scope}[shift={(current page.north west)}]
+      \begin{scope}[shift={(2cm, -1cm)}]
+        \fill    [rotate=30, fill=myaccent3]                              (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+      \begin{scope}[shift={(2cm, -1cm)}]
+        \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=15, pattern=checkerboard, pattern color=mymain4] (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+    \end{scope}
+    \begin{scope}[shift={(current page.south east)}]
+      \begin{scope}[shift={(-2cm, 1cm)}]
+        \fill    [rotate=30, fill=myaccent3]                              (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+      \begin{scope}[shift={(-2cm, 1cm)}]
+        \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=15, pattern=checkerboard, pattern color=mymain4] (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+      \end{scope}
+    \end{scope}
+    % center line
+    \draw [draw=myaccent1, ultra thick] (current page.west) -- (current page.east);
+    % title
+    \node (title) at (current page.center) [above]
+    {
+      \begin{minipage}{\linewidth}
+        \centering
+        \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
+        \inserttitle\par%
+        \ifx\insertsubtitle\empty%
+        \else%
+          \linespread{1.0}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
+          \insertsubtitle\par%
+        \fi%
+      \end{minipage}
+    };
+    % author
+    \node (author) at (current page.center) [below=15mm]
+    {
+      \begin{minipage}{\linewidth}
+        \centering
+        \linespread{0.8}\selectfont%
+        {\large\insertauthor\par}%
+        \ifx\insertinstitute\empty%
+        \else%
+          \vskip0.5em%
+          \linespread{0.8}\selectfont%
+          {\footnotesize\insertinstitute\par}%
+        \fi%
+      \end{minipage}
+    };
+    % date
+    \node (date) at (author) [below=10mm]
+    {
+      \begin{minipage}{\linewidth}
+        \centering
+        {\footnotesize\insertdate\par}%
+      \end{minipage}
+    };
+  \end{tikzpicture}%
 }
-\setbeamertemplate{frametitle}{\vspace{1mm}\insertframetitle\par}
+\setbeamertemplate{frametitle}{%
+  \begin{tikzpicture}[remember picture, overlay]%
+      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3!50!mymain4]                     {\hspace{0.5em}\insertframetitle};
+      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, pattern=checkerboard, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
+  \end{tikzpicture}
+  \vskip 3mm
+}
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
-\setbeamercolor{frametitle}{fg=myblue}
+\setbeamercolor{frametitle}{fg=myfg}
+
+% Table of Contents
 \setbeamertemplate{section in toc}{\makebox[1em]{> }\inserttocsection\par}
 \setbeamerfont{section in toc}{size=\large,series=\bfseries}
-\setbeamercolor{section in toc}{fg=mybrightblack}
+\setbeamercolor{section in toc}{fg=mymain1}
 \setbeamertemplate{section in toc shaded}{\makebox[1em]{}\inserttocsection\par}
-\setbeamerfont{section in toc shaded}{size=\large,series=\mdseries}
-\setbeamercolor{section in toc shaded}{fg=mybrightblack}
-\setbeamercolor{item}{fg=myblue}
+\setbeamerfont{section in toc shaded}{size=\large,series=\bfseries}
+\setbeamercolor{section in toc shaded}{fg=mymain4}
+\newcommand{\toc}[1][]{%
+  \ifthenelse{\equal {#1} {}}%
+  {%
+    \setbeamertemplate{section in toc}{\makebox[1em]{}\inserttocsection\par}%
+    \tableofcontents%
+  }%
+  {%
+    \tableofcontents[#1]%
+  }%
+}
+
+\setbeamercolor{item}{fg=mymain1}
 \setbeamertemplate{itemize item}{\tiny\raise1.75pt\hbox{$\blacksquare$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1.5pt\hbox{$\blacktriangleright$}}
-\setbeamertemplate{itemize/enumerate body begin}{\bfseries\color{mybrightblack}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
+\setbeamertemplate{itemize/enumerate body begin}{\color{myfg}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\mdseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
 \setbeamerfont{enumerate subitem}{series=\bfseries}
 \setbeamerfont{description item}{series=\bfseries}
 \setbeamertemplate{enumerate subitem}{\usebeamercolor[fg]{enumerate item}\usebeamerfont{enumerate item}\alph{enumii}.}
 \setbeamerfont{alerted text}{series=\bfseries}
-\setbeamercolor{alerted text}{fg=myred}
+\setbeamercolor{alerted text}{fg=myaccent1}
 % block
 \setbeamerfont{block title}{series=\bfseries}
-\setbeamercolor{block title}{fg=mybrightblack}
-\setbeamercolor{block body}{fg=myblack,bg=mygray!50}
+\setbeamercolor{block title}{fg=myfg}
+\setbeamercolor{block body}{fg=myfg,bg=mybg!90!black}
 \setbeamertemplate{block begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
@@ -127,8 +193,8 @@
 }
 % alert block
 \setbeamerfont{block title alerted}{series=\bfseries}
-\setbeamercolor{block title alerted}{fg=mybrightblack}
-\setbeamercolor{block body alerted}{fg=myblack,bg=myyellow}
+\setbeamercolor{block title alerted}{fg=myfg}
+\setbeamercolor{block body alerted}{fg=myfg,bg=mybg!60!myaccent2}
 \setbeamertemplate{block alerted begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
@@ -143,8 +209,8 @@
 }
 % example block
 \setbeamerfont{block title example}{series=\bfseries}
-\setbeamercolor{block title example}{fg=mybrightblack}
-\setbeamercolor{block body example}{fg=myblack,bg=myblue!25}
+\setbeamercolor{block title example}{fg=myfg}
+\setbeamercolor{block body example}{fg=myfg,bg=mybg!50!mymain3}
 \setbeamertemplate{block example begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
@@ -157,36 +223,6 @@
     \end{beamercolorbox}%
   \egroup%
 }
-
-
-% Font
-% We use fontspec's 'main font' (serif font) for math and use the 'sans font'
-% for normal text.
-\usefonttheme[onlymath]{serif}
-\RequirePackage{fontspec}
-\setmainfont{TeX Gyre Pagella}  % serif font, used only for math
-\ifx\@mainfont\@fontlato
-  \setsansfont[Scale=MatchLowercase,
-               Numbers={Proportional,Lining},
-               BoldFont=Lato Black,
-               ItalicFont=Lato Light Italic,
-               BoldItalicFont=Lato Black Italic]
-              {Lato Light}
-\else\ifx\@mainfont\@fontraleway
-  \setsansfont[Scale=MatchLowercase,
-               Numbers={Proportional,Lining},
-               BoldFont=Raleway ExtraBold,
-               ItalicFont=Lato Light Italic,
-               BoldItalicFont=Lato Black Italic]
-              {Raleway Light}
-\fi\fi
-\setmonofont[Scale=MatchLowercase]{Inconsolata}
-
-\if@usejafonts
-  \RequirePackage{luatexja-fontspec}
-  \setmainjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
-  \setsansjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
-\fi
 
 
 % Highlighting
