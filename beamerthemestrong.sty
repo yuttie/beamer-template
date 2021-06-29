@@ -56,7 +56,7 @@
       \coordinate (top left)  at ([yshift=2pt] current page.south west);
       \coordinate (top right) at ([yshift=2pt] current page.south east);
       \coordinate (p) at ($ (top left)!\fraction!(top right) $);
-      \fill[fill=myaccent2] (bottom left) rectangle (p);
+      \fill[fill=myaccent3] (bottom left) rectangle (p);
     \end{scope}
     % frame numbers
     \node at ([shift={(-2mm,1mm)}] current page.south east) [above left] {%
@@ -178,7 +178,7 @@
 % block
 \setbeamerfont{block title}{series=\bfseries}
 \setbeamercolor{block title}{fg=myfg}
-\setbeamercolor{block body}{fg=myfg,bg=mybg!80!black}
+\setbeamercolor{block body}{fg=myfg,bg=mybg!90!black}
 \setbeamertemplate{block begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
@@ -194,7 +194,7 @@
 % alert block
 \setbeamerfont{block title alerted}{series=\bfseries}
 \setbeamercolor{block title alerted}{fg=myfg}
-\setbeamercolor{block body alerted}{fg=myfg,bg=myaccent2}
+\setbeamercolor{block body alerted}{fg=myfg,bg=mybg!60!myaccent2}
 \setbeamertemplate{block alerted begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
@@ -210,7 +210,7 @@
 % example block
 \setbeamerfont{block title example}{series=\bfseries}
 \setbeamercolor{block title example}{fg=myfg}
-\setbeamercolor{block body example}{fg=myfg,bg=mymain3}
+\setbeamercolor{block body example}{fg=myfg,bg=mybg!50!mymain3}
 \setbeamertemplate{block example begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
