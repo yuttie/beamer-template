@@ -145,12 +145,25 @@
 }
 \setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myfg}
+
+% Table of Contents
 \setbeamertemplate{section in toc}{\makebox[1em]{> }\inserttocsection\par}
 \setbeamerfont{section in toc}{size=\large,series=\bfseries}
 \setbeamercolor{section in toc}{fg=mymain1}
 \setbeamertemplate{section in toc shaded}{\makebox[1em]{}\inserttocsection\par}
-\setbeamerfont{section in toc shaded}{size=\large,series=\mdseries}
-\setbeamercolor{section in toc shaded}{fg=myfg}
+\setbeamerfont{section in toc shaded}{size=\large,series=\bfseries}
+\setbeamercolor{section in toc shaded}{fg=mymain4}
+\newcommand{\toc}[1][]{%
+  \ifthenelse{\equal {#1} {}}%
+  {%
+    \setbeamertemplate{section in toc}{\makebox[1em]{}\inserttocsection\par}%
+    \tableofcontents%
+  }%
+  {%
+    \tableofcontents[#1]%
+  }%
+}
+
 \setbeamercolor{item}{fg=mymain1}
 \setbeamertemplate{itemize item}{\tiny\raise1.75pt\hbox{$\blacksquare$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1.5pt\hbox{$\blacktriangleright$}}
