@@ -12,6 +12,23 @@
 %\usepackage{algorithm}  % must be behind hyperref
 
 
+% Font
+\usefonttheme[onlymath]{serif}  % Use 'serif' font for math
+\usepackage{fontspec}
+\setsansfont[%
+  Scale=MatchLowercase,
+  Numbers={Proportional,Lining},
+  BoldFont=Lato Black,
+  ItalicFont=Lato Light Italic,
+  BoldItalicFont=Lato Black Italic]
+  {Lato Light}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+% For Japanese
+%\usepackage{luatexja-fontspec}
+%\setmainjfont[Scale=0.8,BoldFont=Harano Aji Gothic Heavy]{Harano Aji Gothic Light}
+%\setsansjfont[Scale=0.8,BoldFont=Harano Aji Gothic Heavy]{Harano Aji Gothic Light}
+
+
 % Path
 %\graphicspath{{image/}}
 

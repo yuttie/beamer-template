@@ -7,17 +7,6 @@
 \usetikzlibrary{patterns}
 
 % Options
-\def\@fontlato{lato}
-\def\@fontraleway{raleway}
-\def\@fontmplus{mplus}
-\edef\@mainfont{\@fontraleway}
-\DeclareOption{lato}{\edef\@mainfont{\@fontlato}}
-\DeclareOption{raleway}{\edef\@mainfont{\@fontraleway}}
-\DeclareOption{mplus}{\edef\@mainfont{\@fontmplus}}
-
-\newif\if@usejafonts\@usejafontsfalse
-\DeclareOption{ja}{\@usejafontstrue}
-
 \DeclareOption*{\PackageWarning{beamerthemestrong}{Unknown option `\CurrentOption'}}
 
 \ProcessOptions\relax
@@ -221,43 +210,6 @@
     \end{beamercolorbox}%
   \egroup%
 }
-
-
-% Font
-% We use fontspec's 'main font' (serif font) for math and use the 'sans font'
-% for normal text.
-\usefonttheme[onlymath]{serif}
-\RequirePackage{fontspec}
-\setmainfont{TeX Gyre Pagella}  % serif font, used only for math
-\ifx\@mainfont\@fontlato
-  \setsansfont[Scale=MatchLowercase,
-               Numbers={Proportional,Lining},
-               BoldFont=Lato Black,
-               ItalicFont=Lato Light Italic,
-               BoldItalicFont=Lato Black Italic]
-              {Lato Light}
-\else\ifx\@mainfont\@fontraleway
-  \setsansfont[Scale=MatchLowercase,
-               Numbers={Proportional,Lining},
-               BoldFont=Raleway ExtraBold,
-               ItalicFont=Lato Light Italic,
-               BoldItalicFont=Lato Black Italic]
-              {Raleway Light}
-\else\ifx\@mainfont\@fontmplus
-  \setsansfont[Scale=MatchLowercase,
-               Numbers={Proportional,Lining},
-               BoldFont=Mplus 1 Black,
-               ItalicFont=Mplus 1 Light,
-               BoldItalicFont=Mplus 1 Black]
-              {Mplus 1 Light}
-\fi\fi
-\setmonofont[Scale=MatchLowercase]{Envy Code R}
-
-\if@usejafonts
-  \RequirePackage{luatexja-fontspec}
-  \setmainjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
-  \setsansjfont[Scale=0.8,BoldFont=M+ 1c heavy]{M+ 1c light}
-\fi
 
 
 % Highlighting
