@@ -9,9 +9,11 @@
 % Options
 \def\@fontlato{lato}
 \def\@fontraleway{raleway}
+\def\@fontmplus{mplus}
 \edef\@mainfont{\@fontraleway}
 \DeclareOption{lato}{\edef\@mainfont{\@fontlato}}
 \DeclareOption{raleway}{\edef\@mainfont{\@fontraleway}}
+\DeclareOption{mplus}{\edef\@mainfont{\@fontmplus}}
 
 \newif\if@usejafonts\@usejafontsfalse
 \DeclareOption{ja}{\@usejafontstrue}
@@ -241,6 +243,13 @@
                ItalicFont=Lato Light Italic,
                BoldItalicFont=Lato Black Italic]
               {Raleway Light}
+\else\ifx\@mainfont\@fontmplus
+  \setsansfont[Scale=MatchLowercase,
+               Numbers={Proportional,Lining},
+               BoldFont=Mplus 1 Black,
+               ItalicFont=Mplus 1 Light,
+               BoldItalicFont=Mplus 1 Black]
+              {Mplus 1 Light}
 \fi\fi
 \setmonofont[Scale=MatchLowercase]{Envy Code R}
 
