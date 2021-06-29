@@ -117,13 +117,13 @@
         \inserttitle\par%
         \ifx\insertsubtitle\empty%
         \else%
-          \linespread{0.8}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
+          \linespread{1.0}\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
           \insertsubtitle\par%
         \fi%
       \end{minipage}
     };
     % author
-    \node (author) at (current page.center) [below=5mm]
+    \node (author) at (current page.center) [below=15mm]
     {
       \begin{minipage}{\linewidth}
         \centering
@@ -138,7 +138,7 @@
       \end{minipage}
     };
     % date
-    \node (date) at (author) [below=15mm]
+    \node (date) at (author) [below=10mm]
     {
       \begin{minipage}{\linewidth}
         \centering
