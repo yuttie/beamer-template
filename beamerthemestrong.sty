@@ -31,14 +31,22 @@
 % Basic colors chosen by using http://hue360.herokuapp.com/
 \definecolor{mybg}{HTML}{FFFFFF}
 \definecolor{myfg}{HTML}{444444}
-\definecolor{mymain1}{HTML}{0086AB}
-\definecolor{mymain2}{HTML}{42AAC7}
-\definecolor{mymain3}{HTML}{97D3E3}
-\definecolor{mymain4}{HTML}{C9E8F1}
-\definecolor{myaccent1}{HTML}{EDAD0B}
-\definecolor{myaccent2}{HTML}{F3C759}
-\definecolor{myaccent3}{HTML}{F9E3AA}
-\definecolor{myaccent4}{HTML}{FCF1D3}
+\definecolor{mymain1}{HTML}{00abab}
+\definecolor{mymain2}{HTML}{42c7c7}
+\definecolor{mymain3}{HTML}{9ddddd}
+\definecolor{mymain4}{HTML}{c9f1f1}
+\definecolor{myaccent1}{HTML}{edbc0b}
+\definecolor{myaccent2}{HTML}{f3d259}
+\definecolor{myaccent3}{HTML}{fee485}
+\definecolor{myaccent4}{HTML}{fcf3d3}
+
+% Patterns
+\pgfdeclarepatternformonly{my small dots}{\pgfqpoint{-2pt}{-2pt}}{\pgfqpoint{10pt}{10pt}}{\pgfqpoint{12pt}{12pt}}%
+{
+  \pgfpathcircle{\pgfqpoint{0pt}{0pt}}{1pt}
+  \pgfpathcircle{\pgfqpoint{6pt}{6pt}}{1pt}
+  \pgfusepath{fill}
+}
 
 \setbeamercolor{normal text}{fg=myfg}
 \setbeamertemplate{background canvas}[default]
@@ -79,20 +87,22 @@
     % ribbons
     \begin{scope}[shift={(current page.north west)}]
       \begin{scope}[shift={(2cm, -1cm)}]
-        \fill    [rotate=30, fill=myaccent3]                              (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
       \end{scope}
       \begin{scope}[shift={(2cm, -1cm)}]
         \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \pattern [rotate=15, pattern=checkerboard, pattern color=mymain4] (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
       \end{scope}
     \end{scope}
     \begin{scope}[shift={(current page.south east)}]
       \begin{scope}[shift={(-2cm, 1cm)}]
-        \fill    [rotate=30, fill=myaccent3]                              (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
       \end{scope}
       \begin{scope}[shift={(-2cm, 1cm)}]
         \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \pattern [rotate=15, pattern=checkerboard, pattern color=mymain4] (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
       \end{scope}
     \end{scope}
     % center line
@@ -138,8 +148,8 @@
 }
 \setbeamertemplate{frametitle}{%
   \begin{tikzpicture}[remember picture, overlay]%
-      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3!50!mymain4]                     {\hspace{0.5em}\insertframetitle};
-      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, pattern=checkerboard, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
+      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3]                                    {\hspace{0.5em}\insertframetitle};
+      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, pattern=north west lines, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
   \end{tikzpicture}
   \vskip 3mm
 }
