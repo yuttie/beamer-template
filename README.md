@@ -1,4 +1,4 @@
-A "Strong" Theme for LaTeX Beamer
+A "Cute" Theme for LaTeX Beamer
 =================================
 
 
@@ -43,8 +43,8 @@ See `slides.tex`.
 
 
 ### Japanese Fonts
-To use Japanese in your slides, you need to pass the `ja` option to the 'strong'
-theme package as follows:
+To use Japanese in your slides, you need to pass the `ja` option to the theme
+package as follows:
 ```tex
-\usetheme[ja]{strong}
+\usetheme[ja]{cute}
 ```
