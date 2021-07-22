@@ -148,8 +148,8 @@
 }
 \setbeamertemplate{frametitle}{%
   \begin{tikzpicture}[remember picture, overlay]%
-      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3]                                    {\hspace{0.5em}\insertframetitle};
-      \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, pattern=north west lines, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
+    \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3]                                    {\hspace{0.5em}\phantom{\insertframetitle}};
+    \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, pattern=north west lines, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
   \end{tikzpicture}
   \vskip 3mm
 }
