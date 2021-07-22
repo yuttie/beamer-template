@@ -120,30 +120,29 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{Math \& Code}
+\begin{frame}[fragile]{Math}
+  \begin{itemize}
+    \item $e^{ix} = \cos x + i \sin x$
+    \item $\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt$
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Code}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item $e^{ix} = \cos x + i \sin x$
-      \item $\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt$
+        \item a
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \begin{html*}{gobble=8}
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="UTF-8" />
-            <title>Example of Code</title>
-          </head>
-          <body>
-            Syntax highlight by
-            <strong class="package">
-              minted
-            </strong>!
-          </body>
-        </html>
-      \end{html*}
+      \begin{minted}[linenos]{python}
+def main():
+    print('Hello, Beamer!')
+
+if __name__ == '__main__':
+    main()
+      \end{minted}
     \end{column}
   \end{columns}
 \end{frame}

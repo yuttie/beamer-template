@@ -241,5 +241,5 @@
 
 % Highlighting
 \RequirePackage{minted}
-\usemintedstyle{pastie}
-\newminted[html]{html}{bgcolor=black!5,fontsize=\footnotesize,gobble=4,linenos=false,numbersep=6pt}
+\usemintedstyle{solarized-light}
+\renewcommand{\theFancyVerbLine}{\ttfamily\color{myfg!50!white}\normalsize\arabic{FancyVerbLine}}  % Style line numbers
