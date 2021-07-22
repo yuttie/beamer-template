@@ -111,7 +111,7 @@
     % center line
     \draw [draw=myaccent1, ultra thick] (current page.west) -- (current page.east);
     % title
-    \node (title) at (current page.center) [above]
+    \node (title) at (current page.center) [anchor=center]
     {
       \begin{minipage}{\linewidth}
         \centering
@@ -125,7 +125,7 @@
       \end{minipage}
     };
     % author
-    \node (author) at (current page.center) [below=15mm]
+    \node (author) at (title.south) [below=5mm]
     {
       \begin{minipage}{\linewidth}
         \centering
@@ -140,7 +140,7 @@
       \end{minipage}
     };
     % date
-    \node (date) at (author) [below=10mm]
+    \node (date) at (author.south) [below=5mm]
     {
       \begin{minipage}{\linewidth}
         \centering
