@@ -190,12 +190,12 @@
 \setbeamerfont{alerted text}{series=\bfseries}
 \setbeamercolor{alerted text}{fg=myaccent1}
 % block
-\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
 \setbeamercolor{block title}{fg=myfg}
 \setbeamercolor{block body}{fg=myfg,bg=mybg!90!black}
 \setbeamertemplate{block begin}{%
   \mbox\bgroup%
-    \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body}%
+    \begin{beamercolorbox}[wd=\linewidth,sep=0.75ex]{block body}%
       {\usebeamercolor[fg]{block title}\usebeamerfont{block title}\insertblocktitle}%
       \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
       \begin{minipage}{\linewidth - 2mm - 2mm}%
@@ -206,12 +206,12 @@
   \egroup%
 }
 % alert block
-\setbeamerfont{block title alerted}{series=\bfseries}
+\setbeamerfont{block title alerted}{size=\normalsize,series=\bfseries}
 \setbeamercolor{block title alerted}{fg=myfg}
-\setbeamercolor{block body alerted}{fg=myfg,bg=mybg!60!myaccent2}
+\setbeamercolor{block body alerted}{fg=myfg,bg=myaccent4}
 \setbeamertemplate{block alerted begin}{%
   \mbox\bgroup%
-    \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body alerted}%
+    \begin{beamercolorbox}[wd=\linewidth,sep=0.75ex]{block body alerted}%
       {\usebeamercolor[fg]{block title alerted}\usebeamerfont{block title alerted}\insertblocktitle}%
       \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
       \begin{minipage}{\linewidth - 2mm - 2mm}%
@@ -222,12 +222,12 @@
   \egroup%
 }
 % example block
-\setbeamerfont{block title example}{series=\bfseries}
+\setbeamerfont{block title example}{size=\normalsize,series=\bfseries}
 \setbeamercolor{block title example}{fg=myfg}
-\setbeamercolor{block body example}{fg=myfg,bg=mybg!50!mymain3}
+\setbeamercolor{block body example}{fg=myfg,bg=mymain4}
 \setbeamertemplate{block example begin}{%
   \mbox\bgroup%
-    \begin{beamercolorbox}[wd=\linewidth,sep=2mm]{block body example}%
+    \begin{beamercolorbox}[wd=\linewidth,sep=0.75ex]{block body example}%
       {\usebeamercolor[fg]{block title example}\usebeamerfont{block title example}\insertblocktitle}%
       \ifthenelse{\equal{\insertblocktitle}{}}{}{\par}%
       \begin{minipage}{\linewidth - 2mm - 2mm}%
