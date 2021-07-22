@@ -5,6 +5,7 @@
 \RequirePackage{tikz}
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing, decorations.shapes}
 
 % Options
 \DeclareOption*{\PackageWarning{beamerthemecute}{Unknown option `\CurrentOption'}}
@@ -150,8 +151,10 @@
 }
 \setbeamertemplate{frametitle}{%
   \begin{tikzpicture}[remember picture, overlay]%
-    \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, fill=mymain3]                                    {\hspace{0.5em}\phantom{\insertframetitle}};
-    \node [yshift=-8mm] at (current page.north west) [right, text width=\paperwidth, pattern=north west lines, pattern color=mymain4] {\hspace{0.5em}\insertframetitle};
+    \node [shift={(-10mm, -(2.25ex + 1mm + 2mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 20mm), decorate, decoration={snake, segment length=7mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain4]                                    {};
+    \node [shift={(-10mm, -(2.25ex + 1mm + 0mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 20mm), decorate, decoration={snake, segment length=7mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain3]                                    {};
+    \node [shift={(-10mm, -(2.25ex + 1mm + 2mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 20mm), decorate, decoration={snake, segment length=7mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, pattern=north west lines, pattern color=mymain4] {};
+    \node [shift={(0.5mm, -(2.25ex + 1mm     ))}] at (current page.north west) [anchor=base west, text height=2ex, text depth=0.25ex, text width=\paperwidth, align=flush center] {\insertframetitle};
   \end{tikzpicture}
   \vskip 3mm
 }
