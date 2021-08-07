@@ -3,8 +3,16 @@
 
 
 % Font
-\usefonttheme[onlymath]{serif}  % Use 'serif' font for math
+\usefonttheme{professionalfonts}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
 \usepackage{fontspec}
+\setmainfont[%
+  Scale=MatchLowercase,
+  BoldFont=STIX Two Text Bold,
+  ItalicFont=STIX Two Text Italic,
+  BoldItalicFont=STIX Two Text Bold Italic,
+]{STIX Two Text}
 \setsansfont[%
   Scale=MatchLowercase,
   Numbers={Lining},
