@@ -178,9 +178,11 @@
 }
 
 \setbeamercolor{item}{fg=mymain1}
-\setbeamercolor{subitem}{fg=mymain3}
-\setbeamertemplate{itemize item}{\tiny\raise1.75pt\hbox{$\blacksquare$}}
-\setbeamertemplate{itemize subitem}{\scriptsize\raise1.5pt\hbox{$\blacktriangleright$}}
+\setbeamercolor{subitem}{fg=mymain1}
+\setbeamercolor{subsubitem}{fg=mymain1}
+\setbeamertemplate{itemize item}{\tikz[baseline=-0.5ex, rounded corners=0.25ex] \fill (-0.45ex, -0.45ex) rectangle (0.45ex, 0.45ex);}
+\setbeamertemplate{itemize subitem}{\tikz[baseline=-0.5ex, rounded corners=0.25ex] \fill (-0.5ex, -0.6ex) -- (0.5ex, 0ex) -- (-0.5ex, 0.6ex) -- cycle;}
+\setbeamertemplate{itemize subsubitem}{\tikz[baseline=-0.5ex, rounded corners=0.1ex] \fill (-0.6ex, -0.1ex) rectangle (0.6ex, 0.1ex);}
 \setbeamertemplate{itemize/enumerate body begin}{\color{myfg}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\mdseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
