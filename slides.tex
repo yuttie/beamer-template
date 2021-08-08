@@ -59,17 +59,20 @@
 \setcounter{framenumber}{0}
 
 
+% Insert Table of Contents at the beginning of every section
+\AtBeginSection[]{%
+  \begin{frame}{Table of Contents}
+    \toc[currentsection]
+  \end{frame}
+}
+
+
 \begin{frame}{Table of Contents}
   \toc
 \end{frame}
 
 
 \section{Introduction}
-\begin{frame}{Table of Contents}
-  \toc[currentsection]
-\end{frame}
-
-
 \begin{frame}{What's this?}
   \alert{A "Cute" Theme for LaTeX Beamer}
   \begin{itemize}
@@ -79,11 +82,6 @@
 
 
 \section{Examples}
-\begin{frame}{Table of Contents}
-  \toc[currentsection]
-\end{frame}
-
-
 \begin{frame}{Bullet List}
   \begin{itemize}
   \item AAA
