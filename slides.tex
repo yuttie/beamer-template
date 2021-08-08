@@ -41,6 +41,15 @@
 ]{Harano Aji Gothic Regular}
 
 
+% Insert Table of Contents at the beginning of every section
+\AtBeginSection[]{%
+  \begin{frame}{Table of Contents}
+    \centering
+    \toc[currentsection]
+  \end{frame}
+}
+
+
 % Document Properties
 \title[Cute Theme]{Cute Theme for Beamer}
 \subtitle{A theme that makes you happy!}
@@ -52,20 +61,12 @@
 \begin{document}
 
 
+% Title page
 {
   \setbeamertemplate{footline}{}
   \frame{\titlepage}
 }
 \setcounter{framenumber}{0}
-
-
-% Insert Table of Contents at the beginning of every section
-\AtBeginSection[]{%
-  \begin{frame}{Table of Contents}
-    \centering
-    \toc[currentsection]
-  \end{frame}
-}
 
 
 \begin{frame}{Table of Contents}
