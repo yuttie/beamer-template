@@ -160,10 +160,10 @@
 \setbeamercolor{frametitle}{fg=myfg}
 
 % Table of Contents
-\setbeamertemplate{section in toc}{\makebox[1em]{> }\inserttocsection\par}
+\setbeamertemplate{section in toc}{\tikz[baseline] \node[rectangle, rounded corners=0.25ex, text=white, fill=mymain1, inner sep=0.3ex, anchor=base] (A) {\inserttocsectionnumber}; \inserttocsection\par}
 \setbeamerfont{section in toc}{size=\large,series=\bfseries}
 \setbeamercolor{section in toc}{fg=mymain1}
-\setbeamertemplate{section in toc shaded}{\makebox[1em]{}\inserttocsection\par}
+\setbeamertemplate{section in toc shaded}{\tikz[baseline] \node[rectangle, rounded corners=0.25ex, text=white, fill=mymain4, inner sep=0.3ex, anchor=base] (A) {\inserttocsectionnumber}; \inserttocsection\par}
 \setbeamerfont{section in toc shaded}{size=\large,series=\bfseries}
 \setbeamercolor{section in toc shaded}{fg=mymain4}
 \newcommand{\toc}[1][]{%
