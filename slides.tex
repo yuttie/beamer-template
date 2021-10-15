@@ -1,9 +1,21 @@
-\documentclass[12pt,t]{beamer}
+\documentclass[dvipdfmx,12pt,t]{beamer}  % Specify 'dvipdfmx' if you use it
+
+% Fixes for Japanese slides made with (u)platex
+\usepackage{ifluatex,ifptex}
+\ifptex
+\usepackage{bxdpx-beamer}
+\usepackage{pxjahyper}
+\fi
+
+% Theme
 \usetheme{cute}
 
 
-% Font
+% Fonts
 \usefonttheme{professionalfonts}
+
+\ifluatex
+
 \usepackage{unicode-math}
 \setmathfont{STIX Two Math}
 \usepackage{fontspec}
@@ -39,6 +51,25 @@
   Scale=0.8,
   BoldFont=Harano Aji Gothic Bold,
 ]{Harano Aji Gothic Regular}
+
+\else
+
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+\usepackage{tgheros}
+\usepackage{DejaVuSansMono}
+\usepackage{newtxmath}
+% For Japanese
+\ifptex
+\ifuptex
+\usepackage[deluxe,expert,uplatex]{otf}
+\else
+\usepackage[deluxe,expert]{otf}
+\fi
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\fi
+
+\fi
 
 
 % Insert Table of Contents at the beginning of every section
