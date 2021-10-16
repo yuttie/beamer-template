@@ -12,7 +12,7 @@ Packages:
 
 ## Usage
 
-### LuaLaTeX
+### LuaLaTeX or XeLaTeX
 You can compile the slides using the following command line:
 ```sh
 lualatex -shell-escape slides
