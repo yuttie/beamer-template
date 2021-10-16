@@ -1,5 +1,5 @@
 @default_files = ('slides');
-$pdf_mode = 3;
+$pdf_mode = 4;
 
 # For pdflatex ($pdf_mode = 1)
 $pdflatex = 'pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -shell-escape -synctex=1 %O %S';
