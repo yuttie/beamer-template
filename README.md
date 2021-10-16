@@ -1,9 +1,7 @@
-A "Cute" Theme for LaTeX Beamer
-=================================
+# A "Cute" Theme for LaTeX Beamer
 
 
-Requirements
-------------
+## Requirements
 Compiler:
 * (|p|up)LaTeX or LuaLaTeX
 
@@ -12,8 +10,7 @@ Packages:
 * [calc](https://ctan.org/pkg/calc)
 
 
-Build
------
+## Build
 You can compile the slides using the following command line:
 ```sh
 lualatex -shell-escape slides
@@ -29,6 +26,5 @@ latexmk -pvc -pdf -pdflatex="lualatex -interaction=nonstopmode -shell-escape" sl
 ```
 
 
-Usage
------
+## Usage
 See `slides.tex`.
