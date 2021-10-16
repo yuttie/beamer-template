@@ -15,20 +15,37 @@
 
 \newsavebox{\mybox}
 
-% Lengths and Sizes
+% Spacing
+% Frame body
 \setbeamersize{
   text margin left=8mm,
-  text margin right=8mm}
-\setlength{\leftmargini}{1em}
-\setlength{\leftmarginii}{1em}
-\setlength{\leftmarginiii}{1em}
-\AtBeginDocument{%
-    \setlength{\abovedisplayskip}{1ex}
-    \setlength{\belowdisplayskip}{1ex}
-    \setlength{\abovedisplayshortskip}{1ex}
-    \setlength{\belowdisplayshortskip}{1ex}
+  text margin right=8mm
 }
-\setlength{\parskip}{1.5ex}
+% Paragraph
+\setlength{\parskip}{0.5\baselineskip}
+\AtBeginDocument{%
+  % Lists
+  \def\@listi{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\itemsep}{0pt}%
+  }%
+  \def\@listii{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\itemsep}{0pt}%
+  }%
+  \def\@listiii{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\itemsep}{0pt}%
+  }%
+  % Math
+  \setlength{\abovedisplayskip}{0.5\baselineskip}%
+  \setlength{\belowdisplayskip}{0.5\baselineskip}%
+  \setlength{\abovedisplayshortskip}{0.5\baselineskip}%
+  \setlength{\belowdisplayshortskip}{0.5\baselineskip}%
+}
 
 % Basic colors chosen by using http://hue360.herokuapp.com/
 \definecolor{mybg}{HTML}{FFFFFF}
@@ -155,7 +172,7 @@
     \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, pattern=north west lines, pattern color=mymain4!80!white] {};
     \node [shift={(  0mm, -(2ex + 2mm       ))}] at (current page.north west) [anchor=base west, text height=2ex, text depth=0.25ex, text width=(\paperwidth -  4mm), align=flush center] {\insertframetitle};
   \end{tikzpicture}
-  \vskip 4mm
+  \vskip 5mm
 }
 \setbeamerfont{frametitle}{size=\large,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myfg}
@@ -180,9 +197,9 @@
 \setbeamercolor{item}{fg=mymain1}
 \setbeamercolor{subitem}{fg=mymain1}
 \setbeamercolor{subsubitem}{fg=mymain1}
-\setbeamertemplate{itemize item}{\tikz[baseline=-0.5ex, rounded corners=0.25ex] \fill (-0.45ex, -0.45ex) rectangle (0.45ex, 0.45ex);}
-\setbeamertemplate{itemize subitem}{\tikz[baseline=-0.5ex, rounded corners=0.25ex] \fill (-0.5ex, -0.6ex) -- (0.5ex, 0ex) -- (-0.5ex, 0.6ex) -- cycle;}
-\setbeamertemplate{itemize subsubitem}{\tikz[baseline=-0.5ex, rounded corners=0.1ex] \fill (-0.6ex, -0.1ex) rectangle (0.6ex, 0.1ex);}
+\setbeamertemplate{itemize item}{\tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.45ex, -0.45ex) rectangle (0.45ex, 0.45ex);}
+\setbeamertemplate{itemize subitem}{\tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.5ex, -0.6ex) -- (0.5ex, 0ex) -- (-0.5ex, 0.6ex) -- cycle;}
+\setbeamertemplate{itemize subsubitem}{\tikz[baseline=-0.6ex, rounded corners=0.1ex] \fill (-0.6ex, -0.1ex) rectangle (0.6ex, 0.1ex);}
 \setbeamertemplate{itemize/enumerate body begin}{\color{myfg}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\mdseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
