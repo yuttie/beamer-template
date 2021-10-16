@@ -5,19 +5,11 @@ A "Cute" Theme for LaTeX Beamer
 Requirements
 ------------
 Compiler:
-* LuaLaTeX
+* (|p|up)LaTeX or LuaLaTeX
 
 Packages:
-* Beamer package
-* fontspec package
-* minted package
-
-Fonts:
-* Lato, Raleway and Inconsolata fonts
-
-(optional) Japanese support:
-* luatexja-fontspec package
-* M+ fonts
+* [beamer](https://ctan.org/pkg/beamer)
+* [calc](https://ctan.org/pkg/calc)
 
 
 Build
@@ -40,11 +32,3 @@ latexmk -pvc -pdf -pdflatex="lualatex -interaction=nonstopmode -shell-escape" sl
 Usage
 -----
 See `slides.tex`.
-
-
-### Japanese Fonts
-To use Japanese in your slides, you need to pass the `ja` option to the theme
-package as follows:
-```tex
-\usetheme[ja]{cute}
-```
