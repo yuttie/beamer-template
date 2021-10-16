@@ -83,10 +83,10 @@
       \pgfmathparse{\insertframenumber / \inserttotalframenumber}
       \let\fraction=\pgfmathresult
       \coordinate (bottom left) at (current page.south west);
-      \coordinate (top left)  at ([yshift=2pt] current page.south west);
-      \coordinate (top right) at ([yshift=2pt] current page.south east);
+      \coordinate (top left)  at ([yshift=1pt] current page.south west);
+      \coordinate (top right) at ([yshift=1pt] current page.south east);
       \coordinate (p) at ($ (top left)!\fraction!(top right) $);
-      \fill[fill=mypurple] (bottom left) rectangle (p);
+      \fill[fill=mymain1] (bottom left) rectangle (p);
     \end{scope}
     % frame numbers
     \node at ([shift={(-2mm,1mm)}] current page.south east) [above left] {%
