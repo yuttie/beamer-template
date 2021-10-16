@@ -10,7 +10,9 @@ Packages:
 * [calc](https://ctan.org/pkg/calc)
 
 
-## Build
+## Usage
+
+### LuaLaTeX
 You can compile the slides using the following command line:
 ```sh
 lualatex -shell-escape slides
@@ -25,6 +27,17 @@ For continuous build with `latexmk`, the following works:
 latexmk -pvc -pdf -pdflatex="lualatex -interaction=nonstopmode -shell-escape" slides
 ```
 
+### LaTeX
+Similarly, the following should work:
+```sh
+latex -shell-escape slides && latex -shell-escape slides && dvipdfmx slides
+latexmk -pdfdvi -latex="latex -shell-escape" slides
+latexmk -pvc -pdfdvi -latex="latex -shell-escape" slides
+```
 
-## Usage
+As of October 2021, the `latex` command produces slides without decorations,
+though Japanese engines `platex` and `uplatex` work fine.
+
+
+## Example
 See `slides.tex`.
