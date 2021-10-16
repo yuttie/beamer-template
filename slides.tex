@@ -113,54 +113,75 @@
 
 \section{Introduction}
 \begin{frame}{What's this?}
-  \alert{A "Cute" Theme for LaTeX Beamer}
-  \begin{itemize}
-    \item Cute
-  \end{itemize}
+  This is a cute theme for LaTeX Beamer.
 \end{frame}
 
 
 \section{Examples}
 \begin{frame}{Bullet List}
   \begin{itemize}
-  \item AAA
-  \item BBB
-    \begin{itemize}
-    \item 111
-    \item 222
+    \item AAA
       \begin{itemize}
-      \item xxx
-      \item yyy
-      \item zzz
+        \item 111
+          \begin{itemize}
+            \item xxx
+            \item yyy
+          \end{itemize}
+        \item 222
       \end{itemize}
-    \end{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at arcu eget eros sagittis aliquam. Nullam convallis finibus massa eget laoreet.
+    \item Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam ac lorem sit amet sem viverra vulputate. Donec scelerisque, mi quis egestas ornare, erat ex volutpat urna, a convallis velit tellus id nisi.
+    \item Sed gravida tortor eu facilisis cursus. Nullam quam odio, hendrerit ac fringilla id, lobortis eu erat. Donec lobortis pulvinar nibh eu pellentesque.
   \end{itemize}
 \end{frame}
 
 
 \begin{frame}{Enumeration}
   \begin{enumerate}
-  \item Alpha
-    \begin{enumerate}
-    \item I
-    \item II
-    \item III
-    \end{enumerate}
-  \item Beta
-  \item Gamma
+    \item Alpha
+      \begin{enumerate}
+        \item I
+          \begin{enumerate}
+            \item Beta
+            \item Gamma
+          \end{enumerate}
+        \item II
+      \end{enumerate}
+    \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at arcu eget eros sagittis aliquam. Nullam convallis finibus massa eget laoreet.
+    \item Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam ac lorem sit amet sem viverra vulputate. Donec scelerisque, mi quis egestas ornare, erat ex volutpat urna, a convallis velit tellus id nisi.
+    \item Sed gravida tortor eu facilisis cursus. Nullam quam odio, hendrerit ac fringilla id, lobortis eu erat. Donec lobortis pulvinar nibh eu pellentesque.
   \end{enumerate}
 \end{frame}
 
 
 \begin{frame}{Descriptions}
   \begin{description}
-  \item[Abc] basic
-  \item[Xyz] extra
+    \item[cute] adjective
+      \begin{enumerate}
+        \item pretty and attractive
+      \end{enumerate}
+    \item[theme] noun
+      \begin{enumerate}
+        \item the subject or main idea in a talk, piece of writing or work of art
+        \item (music) a short tune that is repeated or developed in a piece of music
+      \end{enumerate}
   \end{description}
 \end{frame}
 
 
 \begin{frame}[fragile]{Math}
+  \emph{Euler's formula}, named after Leonhard Euler, is a mathematical formula
+  in complex analysis that establishes the fundamental relationship between the
+  trigonometric functions and the complex exponential function. Euler's formula
+  states that for any real number $x$:
+  \begin{align}
+    e^{ix} = \cos x + i\sin x,
+  \end{align}
+  where $e$ is the base of the natural logarithm, $i$ is the imaginary unit,
+  and $\cos$ and $\sin$ are the trigonometric functions cosine and sine
+  respectively.
+
+  Here are some math equations in a list:
   \begin{itemize}
     \item $e^{ix} = \cos x + i \sin x$
     \item $\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt$
@@ -168,39 +189,34 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{Code}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-        \item Syntax highlighting by \alert{minted} package
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{minted}[linenos, fontsize=\footnotesize]{python}
+\begin{frame}[fragile]{Source Code}
+  Although the theme itself provides nothing for the purpose,
+  you can use \alert{minted} package for syntax highlighting.
+
+  \begin{minted}[frame=single,fontsize=\footnotesize]{python}
 def main():
     print('Hello, Beamer!')
 
 if __name__ == '__main__':
     main()
-      \end{minted}
-    \end{column}
-  \end{columns}
+  \end{minted}
 \end{frame}
 
 
-\begin{frame}{Rich Text}
+\begin{frame}{Font Styles}
   \begin{itemize}
-  \item \textit{Italic} style
-  \item \textbf{Bold} style
-  \item \textit{\textbf{Bold italic}} style
-  \item \alert{Alerted} style
+  \item \textit{Italic} text
+  \item \textbf{Bold} text
+  \item \textit{\textbf{Bold italic}} text
+  \item \alert{Alerted} text
+  \item \emph{Emphasized} text
   \end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]{Blocks}
-  \begin{block}{Generic Block}
-    Generally, we can use this one.
+  \begin{block}{Normal Block}
+    This is a basic block.
   \end{block}
 
   \begin{itemize}
