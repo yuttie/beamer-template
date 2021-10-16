@@ -3,10 +3,14 @@
 
 % Packages
 \RequirePackage{calc}
-\RequirePackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{patterns}
-\usetikzlibrary{decorations.pathmorphing, decorations.shapes}
+\ifbeamer@draftmode%
+  \relax%
+\else%
+  \RequirePackage{tikz}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{patterns}
+  \usetikzlibrary{decorations.pathmorphing, decorations.shapes}
+\fi%
 
 % Options
 \DeclareOption*{\PackageWarning{beamerthemecute}{Unknown option `\CurrentOption'}}
@@ -77,107 +81,170 @@
 \setbeamercolor{page number in head/foot}{fg=mymain2}
 \setbeamerfont{page number in head/foot}{size=\footnotesize,series=\mdseries}
 \setbeamertemplate{footline}{%
-  \begin{tikzpicture}[overlay]
-    % progress bar
-    \begin{scope}
-      \pgfmathparse{\insertframenumber / \inserttotalframenumber}
-      \let\fraction=\pgfmathresult
-      \coordinate (bottom left) at (current page.south west);
-      \coordinate (top left)  at ([yshift=1pt] current page.south west);
-      \coordinate (top right) at ([yshift=1pt] current page.south east);
-      \coordinate (p) at ($ (top left)!\fraction!(top right) $);
-      \fill[fill=mymain1] (bottom left) rectangle (p);
-    \end{scope}
-    % frame numbers
-    \node at ([shift={(-2mm,1mm)}] current page.south east) [above left] {%
-      \usebeamercolor[fg]{page number in head/foot}%
-      \usebeamerfont{page number in head/foot}%
-      \insertframenumber%
-    };
-  \end{tikzpicture}
+  \ifbeamer@draftmode%
+    \usebeamercolor[fg]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}%
+    \insertframenumber%
+  \else%
+    \begin{tikzpicture}[overlay]
+      % progress bar
+      \begin{scope}
+        \pgfmathparse{\insertframenumber / \inserttotalframenumber}
+        \let\fraction=\pgfmathresult
+        \coordinate (bottom left) at (current page.south west);
+        \coordinate (top left)  at ([yshift=1pt] current page.south west);
+        \coordinate (top right) at ([yshift=1pt] current page.south east);
+        \coordinate (p) at ($ (top left)!\fraction!(top right) $);
+        \fill[fill=mymain1] (bottom left) rectangle (p);
+      \end{scope}
+      % frame numbers
+      \node at ([shift={(-2mm,1mm)}] current page.south east) [above left] {%
+        \usebeamercolor[fg]{page number in head/foot}%
+        \usebeamerfont{page number in head/foot}%
+        \insertframenumber%
+      };
+    \end{tikzpicture}
+  \fi%
 }
 \setbeamerfont{title}{size=\huge,series=\bfseries}
 \setbeamercolor{title}{fg=mymain1}
 \setbeamertemplate{title page}{%
-  \begin{tikzpicture}[remember picture, overlay]%
-    \clip (current page.north west) rectangle (current page.south east);
-    % ribbons
-    \begin{scope}[shift={(current page.north west)}]
-      \begin{scope}[shift={(2cm, -1cm)}]
-        \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-      \end{scope}
-      \begin{scope}[shift={(2cm, -1cm)}]
-        \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-      \end{scope}
-    \end{scope}
-    \begin{scope}[shift={(current page.south east)}]
-      \begin{scope}[shift={(-2cm, 1cm)}]
-        \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-      \end{scope}
-      \begin{scope}[shift={(-2cm, 1cm)}]
-        \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-      \end{scope}
-    \end{scope}
+  \ifbeamer@draftmode%
+    \centering%
+    \topskip0pt%
+    \vspace*{\fill}%
     % title
-    \node (title) at (current page.center) [anchor=center]
-    {
-      \begin{minipage}{\linewidth}
-        \centering
-        \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
-        \inserttitle\par%
-        \ifx\insertsubtitle\empty%
-        \else%
-          \linespread{1.0}\usebeamerfont{subtitle}\color{mymain2}%
-          \insertsubtitle\par%
-        \fi%
-      \end{minipage}
-    };
+    \begin{minipage}{\linewidth}
+      \centering
+      \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
+      \inserttitle\par%
+      \ifx\insertsubtitle\empty%
+      \else%
+        \linespread{1.0}\usebeamerfont{subtitle}\color{mymain2}%
+        \insertsubtitle\par%
+      \fi%
+    \end{minipage}
     % author
-    \node (author) at (title.south) [below=5mm]
-    {
-      \begin{minipage}{\linewidth}
-        \centering
+    \vskip 5mm%
+    \begin{minipage}{\linewidth}
+      \centering
+      \linespread{0.8}\selectfont%
+      {\large\insertauthor\par}%
+      \ifx\insertinstitute\empty%
+      \else%
+        \vskip0.5em%
         \linespread{0.8}\selectfont%
-        {\large\insertauthor\par}%
-        \ifx\insertinstitute\empty%
-        \else%
-          \vskip0.5em%
-          \linespread{0.8}\selectfont%
-          {\footnotesize\insertinstitute\par}%
-        \fi%
-      \end{minipage}
-    };
+        {\footnotesize\insertinstitute\par}%
+      \fi%
+    \end{minipage}
     % date
-    \node (date) at (author.south) [below=5mm]
-    {
-      \begin{minipage}{\linewidth}
-        \centering
-        {\footnotesize\insertdate\par}%
-      \end{minipage}
-    };
-  \end{tikzpicture}%
+    \vskip 5mm%
+    \begin{minipage}{\linewidth}
+      \centering
+      {\footnotesize\insertdate\par}%
+    \end{minipage}
+    \vspace*{\fill}%
+  \else%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \clip (current page.north west) rectangle (current page.south east);
+      % ribbons
+      \begin{scope}[shift={(current page.north west)}]
+        \begin{scope}[shift={(2cm, -1cm)}]
+          \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \end{scope}
+        \begin{scope}[shift={(2cm, -1cm)}]
+          \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \end{scope}
+      \end{scope}
+      \begin{scope}[shift={(current page.south east)}]
+        \begin{scope}[shift={(-2cm, 1cm)}]
+          \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \end{scope}
+        \begin{scope}[shift={(-2cm, 1cm)}]
+          \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \end{scope}
+      \end{scope}
+      % title
+      \node (title) at (current page.center) [anchor=center]
+      {
+        \begin{minipage}{\linewidth}
+          \centering
+          \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
+          \inserttitle\par%
+          \ifx\insertsubtitle\empty%
+          \else%
+            \linespread{1.0}\usebeamerfont{subtitle}\color{mymain2}%
+            \insertsubtitle\par%
+          \fi%
+        \end{minipage}
+      };
+      % author
+      \node (author) at (title.south) [below=5mm]
+      {
+        \begin{minipage}{\linewidth}
+          \centering
+          \linespread{0.8}\selectfont%
+          {\large\insertauthor\par}%
+          \ifx\insertinstitute\empty%
+          \else%
+            \vskip0.5em%
+            \linespread{0.8}\selectfont%
+            {\footnotesize\insertinstitute\par}%
+          \fi%
+        \end{minipage}
+      };
+      % date
+      \node (date) at (author.south) [below=5mm]
+      {
+        \begin{minipage}{\linewidth}
+          \centering
+          {\footnotesize\insertdate\par}%
+        \end{minipage}
+      };
+    \end{tikzpicture}%
+  \fi%
 }
 \setbeamertemplate{frametitle}{%
-  \begin{tikzpicture}[remember picture, overlay]%
-    \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain4]                                             {};
-    \node [shift={(-10mm, -(2ex + 2mm + 1.0mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain3]                                             {};
-    \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, pattern=north west lines, pattern color=mymain4!80!white] {};
-    \node [shift={(  0mm, -(2ex + 2mm       ))}] at (current page.north west) [anchor=base west, text height=2ex, text depth=0.25ex, text width=(\paperwidth -  4mm), align=flush center] {\insertframetitle};
-  \end{tikzpicture}
-  \vskip 5mm
+  \ifbeamer@draftmode%
+    \vskip 1mm%
+    \centering%
+    \insertframetitle\\%
+    \rule{\textwidth}{0.1mm}%
+    \vskip -2.4pt%
+  \else%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain4]                                             {};
+      \node [shift={(-10mm, -(2ex + 2mm + 1.0mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain3]                                             {};
+      \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=4ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, pattern=north west lines, pattern color=mymain4!80!white] {};
+      \node [shift={(  0mm, -(2ex + 2mm       ))}] at (current page.north west) [anchor=base west, text height=2ex, text depth=0.25ex, text width=(\paperwidth -  4mm), align=flush center] {\insertframetitle};
+    \end{tikzpicture}%
+    \vskip 5mm%
+  \fi%
 }
 \setbeamerfont{frametitle}{size=\large,series=\bfseries}
 \setbeamercolor{frametitle}{fg=myfg}
 
 % Table of Contents
-\setbeamertemplate{section in toc}{\tikz[baseline] \node[rectangle, rounded corners=0.25ex, text=white, fill=mymain1, inner sep=0.3ex, anchor=base] {\inserttocsectionnumber}; \inserttocsection\par}
+\setbeamertemplate{section in toc}{%
+  \ifbeamer@draftmode%
+    [\inserttocsectionnumber]~\inserttocsection\par%
+  \else%
+    \tikz[baseline] \node[rectangle, rounded corners=0.25ex, text=white, fill=mymain1, inner sep=0.3ex, anchor=base] {\inserttocsectionnumber}; \inserttocsection\par%
+  \fi%
+}
 \setbeamerfont{section in toc}{size=\large,series=\bfseries}
 \setbeamercolor{section in toc}{fg=mymain1}
-\setbeamertemplate{section in toc shaded}{\tikz[baseline] \node[rectangle, rounded corners=0.25ex, text=white, fill=mymain4, inner sep=0.3ex, anchor=base] {\inserttocsectionnumber}; \inserttocsection\par}
+\setbeamertemplate{section in toc shaded}{%
+  \ifbeamer@draftmode%
+    [\inserttocsectionnumber]~\inserttocsection\par%
+  \else%
+    \tikz[baseline] \node[rectangle, rounded corners=0.25ex, text=white, fill=mymain4, inner sep=0.3ex, anchor=base] {\inserttocsectionnumber}; \inserttocsection\par%
+  \fi%
+}
 \setbeamerfont{section in toc shaded}{size=\large,series=\bfseries}
 \setbeamercolor{section in toc shaded}{fg=mymain4}
 \newcommand{\toc}[1][]{%
@@ -193,9 +260,27 @@
 \setbeamercolor{item}{fg=mymain1}
 \setbeamercolor{subitem}{fg=mymain1}
 \setbeamercolor{subsubitem}{fg=mymain1}
-\setbeamertemplate{itemize item}{\tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.45ex, -0.45ex) rectangle (0.45ex, 0.45ex);}
-\setbeamertemplate{itemize subitem}{\tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.5ex, -0.6ex) -- (0.5ex, 0ex) -- (-0.5ex, 0.6ex) -- cycle;}
-\setbeamertemplate{itemize subsubitem}{\tikz[baseline=-0.6ex, rounded corners=0.1ex] \fill (-0.6ex, -0.1ex) rectangle (0.6ex, 0.1ex);}
+\setbeamertemplate{itemize item}{%
+  \ifbeamer@draftmode%
+    ■%
+  \else%
+    \tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.45ex, -0.45ex) rectangle (0.45ex, 0.45ex);%
+  \fi%
+}
+\setbeamertemplate{itemize subitem}{%
+  \ifbeamer@draftmode%
+    ▶%
+  \else%
+    \tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.5ex, -0.6ex) -- (0.5ex, 0ex) -- (-0.5ex, 0.6ex) -- cycle;%
+  \fi%
+}
+\setbeamertemplate{itemize subsubitem}{%
+  \ifbeamer@draftmode%
+    \rule[0.6ex]{1.2ex}{0.2ex}%
+  \else%
+    \tikz[baseline=-0.6ex, rounded corners=0.1ex] \fill (-0.6ex, -0.1ex) rectangle (0.6ex, 0.1ex);%
+  \fi%
+}
 \setbeamertemplate{itemize/enumerate body begin}{\color{myfg}\renewcommand{\theenumii}{\theenumi\alph{enumii}}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\mdseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
