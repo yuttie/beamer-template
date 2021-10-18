@@ -16,49 +16,22 @@
 
 \ifluatex
 
-\usepackage{unicode-math}
-\setmathfont{STIX Two Math}
+\usepackage{lmodern}
 \usepackage{fontspec}
-\setmainfont[%
-  Scale=MatchLowercase,
-  BoldFont=STIX Two Text Bold,
-  ItalicFont=STIX Two Text Italic,
-  BoldItalicFont=STIX Two Text Bold Italic,
-]{STIX Two Text}
-\setsansfont[%
-  Scale=MatchLowercase,
-  Numbers={Lining},
-  BoldFont=TeXGyreHeros-Bold,
-  ItalicFont=TeXGyreHeros-Italic,
-  BoldItalicFont=TeXGyreHeros-BoldItalic,
-]{TeXGyreHeros-Regular}
-\setmonofont[
-  Scale=MatchLowercase,
-]{DejaVu Sans Mono}
+\setmainfont[Scale=MatchLowercase]{Latin Modern Roman}
+\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
 % For Japanese
 \usepackage{luatexja-fontspec}
-\setmainjfont[
-  YokoFeatures={JFM=prop},
-  CharacterWidth=Proportional,
-  Kerning=On,
-  Scale=0.8,
-  BoldFont=Harano Aji Gothic Bold,
-]{Harano Aji Gothic Regular}
-\setsansjfont[
-  YokoFeatures={JFM=prop},
-  CharacterWidth=Proportional,
-  Kerning=On,
-  Scale=0.8,
-  BoldFont=Harano Aji Gothic Bold,
-]{Harano Aji Gothic Regular}
+\setmainjfont[YokoFeatures={JFM=prop},CharacterWidth=Proportional,Kerning=On,Scale=0.8]{Harano Aji Gothic}
+\setsansjfont[YokoFeatures={JFM=prop},CharacterWidth=Proportional,Kerning=On,Scale=0.8]{Harano Aji Gothic}
 
 \else
 
 \usepackage[T1]{fontenc}
-\usepackage{tgtermes}
+\usepackage{lmodern}
 \usepackage{tgheros}
 \usepackage{DejaVuSansMono}
-\usepackage{newtxmath}
 % For Japanese
 \ifptex
 \ifuptex
