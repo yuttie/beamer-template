@@ -1,10 +1,15 @@
 \documentclass[t]{beamer}  % Specify 'dvipdfmx' if you use it
 
-% Fixes for Japanese slides made with (u)platex
-\usepackage{ifluatex,ifptex}
+% Additional packages for Japanese typesetting
+\usepackage{ifluatex,ifptex,ifxetex}
+% (u)platex
 \ifptex
 \usepackage{bxdpx-beamer}
 \usepackage{pxjahyper}
+\fi
+% xelatex
+\ifxetex
+\usepackage{zxjatype}
 \fi
 
 % Theme
@@ -27,6 +32,16 @@
 \setsansjfont[YokoFeatures={JFM=prop},CharacterWidth=Proportional,Kerning=On,Scale=0.8]{Harano Aji Gothic}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 
+\else\ifxetex
+
+\usepackage{lmodern}
+\usepackage{fontspec}
+\setmainfont[Scale=MatchLowercase]{Latin Modern Roman}
+\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+% For Japanese
+\usepackage[haranoaji,threeweight,expert,prop,scale=0.8]{zxjafont}
+
 \else
 
 \usepackage[T1]{fontenc}
@@ -44,7 +59,7 @@
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \fi
 
-\fi
+\fi\fi
 
 
 % Syntax highlighting with minted
