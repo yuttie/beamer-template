@@ -51,6 +51,9 @@
   \setlength{\abovedisplayshortskip}{0.5\baselineskip}%
   \setlength{\belowdisplayshortskip}{0.5\baselineskip}%
 }
+% Blocks
+\newlength{\cuteblocksep}
+\setlength{\cuteblocksep}{1ex}
 
 % Basic colors chosen by using http://hue360.herokuapp.com/
 \definecolor{mybg}{HTML}{FFFFFF}
@@ -295,10 +298,10 @@
 \setbeamercolor{block body}{fg=myfg,bg=mybg!90!black}
 \setbeamertemplate{block begin}{%
   \mbox\bgroup%
-    \begin{beamercolorbox}[wd=\linewidth,sep=0.75ex]{block body}%
+    \begin{beamercolorbox}[wd=\textwidth,sep=\cuteblocksep]{block body}%
       \ifthenelse{\equal{\insertblocktitle}{}}{%
       }{%
-        \begin{minipage}{\linewidth - 2mm - 2mm}%
+        \begin{minipage}{\textwidth - \cuteblocksep - \cuteblocksep}%
           \ifbeamer@draftmode%
           $\blacksquare$%
           \else%
@@ -313,7 +316,7 @@
         \par%
         \vspace{0.3\baselineskip}%
       }%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
+      \begin{minipage}{\textwidth - \cuteblocksep - \cuteblocksep}%
 }
 \setbeamertemplate{block end}{%
       \end{minipage}%
@@ -326,10 +329,10 @@
 \setbeamercolor{block body alerted}{fg=myfg,bg=myaccent4}
 \setbeamertemplate{block alerted begin}{%
   \mbox\bgroup%
-    \begin{beamercolorbox}[wd=\linewidth,sep=0.75ex]{block body alerted}%
+    \begin{beamercolorbox}[wd=\textwidth,sep=\cuteblocksep]{block body alerted}%
       \ifthenelse{\equal{\insertblocktitle}{}}{%
       }{%
-        \begin{minipage}{\linewidth - 2mm - 2mm}%
+        \begin{minipage}{\textwidth - \cuteblocksep - \cuteblocksep}%
           \ifbeamer@draftmode%
           $\blacksquare$%
           \else%
@@ -344,7 +347,7 @@
         \par%
         \vspace{0.3\baselineskip}%
       }%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
+      \begin{minipage}{\textwidth - \cuteblocksep - \cuteblocksep}%
 }
 \setbeamertemplate{block alerted end}{%
       \end{minipage}%
@@ -357,10 +360,10 @@
 \setbeamercolor{block body example}{fg=myfg,bg=mymain4}
 \setbeamertemplate{block example begin}{%
   \mbox\bgroup%
-    \begin{beamercolorbox}[wd=\linewidth,sep=0.75ex]{block body example}%
+    \begin{beamercolorbox}[wd=\textwidth,sep=\cuteblocksep]{block body example}%
       \ifthenelse{\equal{\insertblocktitle}{}}{%
       }{%
-        \begin{minipage}{\linewidth - 2mm - 2mm}%
+        \begin{minipage}{\textwidth - \cuteblocksep - \cuteblocksep}%
           \ifbeamer@draftmode%
           $\blacksquare$%
           \else%
@@ -375,7 +378,7 @@
         \par%
         \vspace{0.3\baselineskip}%
       }%
-      \begin{minipage}{\linewidth - 2mm - 2mm}%
+      \begin{minipage}{\textwidth - \cuteblocksep - \cuteblocksep}%
 }
 \setbeamertemplate{block example end}{%
       \end{minipage}%
