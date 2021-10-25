@@ -4,7 +4,7 @@
 % Packages
 \RequirePackage{calc}
 \ifbeamer@draftmode%
-  \relax%
+  \RequirePackage{graphicx}%
 \else%
   \RequirePackage{tikz}
   \usetikzlibrary{calc}
@@ -265,14 +265,14 @@
 \setbeamercolor{subsubitem}{fg=mymain1}
 \setbeamertemplate{itemize item}{%
   \ifbeamer@draftmode%
-    $\blacksquare$%
+    \raisebox{0.3ex}{\scalebox{0.6}{$\blacksquare$}}%
   \else%
     \tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.45ex, -0.45ex) rectangle (0.45ex, 0.45ex);%
   \fi%
 }
 \setbeamertemplate{itemize subitem}{%
   \ifbeamer@draftmode%
-    $\blacktriangleright$%
+    \raisebox{0.3ex}{\scalebox{0.7}[0.8]{$\blacktriangleright$}}%
   \else%
     \tikz[baseline=-0.6ex, rounded corners=0.25ex] \fill (-0.5ex, -0.6ex) -- (0.5ex, 0ex) -- (-0.5ex, 0.6ex) -- cycle;%
   \fi%
