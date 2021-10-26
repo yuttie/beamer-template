@@ -55,19 +55,23 @@
 \newlength{\cuteblocksep}
 \setlength{\cuteblocksep}{1ex}
 
-% Basic colors chosen by using http://hue360.herokuapp.com/
-\definecolor{mybg}{HTML}{FFFFFF}
-\definecolor{myfg}{HTML}{444444}
-\definecolor{mymain1}{HTML}{00abab}
-\definecolor{mymain2}{HTML}{42c7c7}
-\definecolor{mymain3}{HTML}{9ddddd}
-\definecolor{mymain4}{HTML}{c9f1f1}
-\definecolor{myaccent1}{HTML}{edbc0b}
-\definecolor{myaccent2}{HTML}{f3d259}
-\definecolor{myaccent3}{HTML}{fee485}
-\definecolor{myaccent4}{HTML}{fcf3d3}
-\definecolor{mypurple}{HTML}{dbd3eb}
-\definecolor{mypink}{HTML}{fec7c2}
+\definecolor{mybase1}{HTML}{3a4a5f}
+\definecolor{mybase2}{HTML}{576f8e}
+\definecolor{mybase3}{HTML}{8196b1}
+\definecolor{mybase4}{HTML}{bfccd9}
+\definecolor{mybase5}{HTML}{d5e0eb}
+\definecolor{mybase6}{HTML}{f9fafb}
+\definecolor{mymain1}{HTML}{f2be19}
+\definecolor{mymain2}{HTML}{f5cb4a}
+\definecolor{mymain3}{HTML}{f8d874}
+\definecolor{mymain4}{HTML}{fae6a6}
+\definecolor{myaccent1}{HTML}{b23434}
+\definecolor{myaccent2}{HTML}{d16161}
+\definecolor{myaccent3}{HTML}{e29c9c}
+\definecolor{myaccent4}{HTML}{f3d8d8}
+
+\colorlet{mybg}{mybase6}
+\colorlet{myfg}{mybase1}
 
 % Patterns
 \pgfdeclarepatternformonly{my small dots}{\pgfqpoint{-2pt}{-2pt}}{\pgfqpoint{8pt}{8pt}}{\pgfqpoint{10pt}{10pt}}%
@@ -81,7 +85,7 @@
 \setbeamertemplate{background canvas}[default]
 \setbeamercolor{background canvas}{bg=mybg}
 \setbeamertemplate{navigation symbols}{}
-\setbeamercolor{page number in head/foot}{fg=mymain2}
+\setbeamercolor{page number in head/foot}{fg=myfg}
 \setbeamerfont{page number in head/foot}{size=\footnotesize,series=\mdseries}
 \setbeamertemplate{footline}{%
   \ifbeamer@draftmode%
@@ -110,7 +114,7 @@
   \fi%
 }
 \setbeamerfont{title}{size=\huge,series=\bfseries}
-\setbeamercolor{title}{fg=mymain1}
+\setbeamercolor{title}{fg=mybase1}
 \setbeamertemplate{title page}{%
   \ifbeamer@draftmode%
     \centering%
@@ -123,7 +127,7 @@
       \inserttitle\par%
       \ifx\insertsubtitle\empty%
       \else%
-        \linespread{1.0}\usebeamerfont{subtitle}\color{mymain2}%
+        \linespread{1.0}\usebeamerfont{subtitle}\color{mybase2}%
         \insertsubtitle\par%
       \fi%
     \end{minipage}
@@ -150,15 +154,11 @@
   \else%
     \begin{tikzpicture}[remember picture, overlay]%
       \clip (current page.north west) rectangle (current page.south east);
-      % ribbons
+      % Yellow ribbons
       \begin{scope}[shift={(current page.north west)}]
         \begin{scope}[shift={(2cm, -1cm)}]
           \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
           \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \end{scope}
-        \begin{scope}[shift={(2cm, -1cm)}]
-          \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-          \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
         \end{scope}
       \end{scope}
       \begin{scope}[shift={(current page.south east)}]
@@ -166,6 +166,20 @@
           \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
           \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
         \end{scope}
+      \end{scope}
+      % Box
+      \begin{scope}
+        \fill [fill=mybase5] ($(current page.north west)!0.045!(current page.south east)$) rectangle ($(current page.north west)!0.955!(current page.south east)$);
+        \fill [fill=mybg] ([shift={(1mm,-1mm)}] $(current page.north west)!0.045!(current page.south east)$) rectangle ([shift={(-1mm,1mm)}] $(current page.north west)!0.955!(current page.south east)$);
+      \end{scope}
+      % Red ribbons
+      \begin{scope}[shift={(current page.north west)}]
+        \begin{scope}[shift={(2cm, -1cm)}]
+          \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \end{scope}
+      \end{scope}
+      \begin{scope}[shift={(current page.south east)}]
         \begin{scope}[shift={(-2cm, 1cm)}]
           \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
           \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
@@ -180,7 +194,7 @@
           \inserttitle\par%
           \ifx\insertsubtitle\empty%
           \else%
-            \linespread{1.0}\usebeamerfont{subtitle}\color{mymain2}%
+            \linespread{1.0}\usebeamerfont{subtitle}\color{mybase2}%
             \insertsubtitle\par%
           \fi%
         \end{minipage}
@@ -220,9 +234,9 @@
     \vskip -2.4pt%
   \else%
     \begin{tikzpicture}[remember picture, overlay]%
-      \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=5ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain4]                                             {};
-      \node [shift={(-10mm, -(2ex + 2mm + 1.0mm)}] at (current page.north west) [anchor=base west, text height=5ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mymain3]                                             {};
-      \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=5ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, pattern=north west lines, pattern color=mymain4!80!white] {};
+      \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=5ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mybase5]                                             {};
+      \node [shift={(-10mm, -(2ex + 2mm + 1.0mm)}] at (current page.north west) [anchor=base west, text height=5ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, fill=mybase4]                                             {};
+      \node [shift={(-10mm, -(2ex + 2mm + 2.5mm)}] at (current page.north west) [anchor=base west, text height=5ex, text depth=0.25ex, text width=(\paperwidth + 16mm), decorate, decoration={snake, segment length=10mm, amplitude=0.4mm, pre length=0mm, post length=0mm}, pattern=north west lines, pattern color=mybase5!80!white] {};
       \node [shift={(  0mm, -(2ex + 2mm       ))}] at (current page.north west) [anchor=base west, text height=3ex, text depth=0.25ex, text width=(\paperwidth -  4mm), align=flush center] {\insertframetitle};
     \end{tikzpicture}%
     \vskip 5mm%
@@ -260,9 +274,9 @@
   }%
 }
 
-\setbeamercolor{item}{fg=mymain1}
-\setbeamercolor{subitem}{fg=mymain1}
-\setbeamercolor{subsubitem}{fg=mymain1}
+\setbeamercolor{item}{fg=myaccent2}
+\setbeamercolor{subitem}{fg=myaccent2}
+\setbeamercolor{subsubitem}{fg=myaccent2}
 \setbeamertemplate{itemize item}{%
   \ifbeamer@draftmode%
     \raisebox{0.3ex}{\scalebox{0.6}{$\blacksquare$}}%
@@ -291,11 +305,11 @@
 \setbeamerfont{description item}{series=\bfseries}
 \setbeamertemplate{enumerate subitem}{\usebeamercolor[fg]{enumerate item}\usebeamerfont{enumerate item}\alph{enumii}.}
 \setbeamerfont{alerted text}{series=\bfseries}
-\setbeamercolor{alerted text}{fg=myaccent1}
+\setbeamercolor{alerted text}{fg=myaccent2}
 % block
 \setbeamerfont{block title}{size=\normalsize,series=\bfseries}
 \setbeamercolor{block title}{fg=myfg}
-\setbeamercolor{block body}{fg=myfg,bg=mybg!90!black}
+\setbeamercolor{block body}{fg=myfg,bg=mybase4}
 \setbeamertemplate{block begin}{%
   \mbox\bgroup%
     \begin{beamercolorbox}[wd=\textwidth,sep=\cuteblocksep]{block body}%
