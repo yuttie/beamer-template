@@ -1,6 +1,9 @@
 @default_files = ('slides');
 $pdf_mode = 4;
 
+# Code for enabling draft mode with `latexmk -usepretex`
+$pre_tex_code = '\PassOptionsToClass{draft}{beamer}';
+
 # For pdflatex ($pdf_mode = 1)
 $pdflatex = 'pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -shell-escape -synctex=1 %O %S';
 
