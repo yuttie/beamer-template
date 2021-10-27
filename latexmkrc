@@ -1,21 +1,24 @@
 @default_files = ('slides');
 $pdf_mode = 4;
 
-# Code for enabling draft mode with `latexmk -usepretex`
-$pre_tex_code = '\PassOptionsToClass{draft}{beamer}';
+# Common options for LaTeX engines
+$common_opts = '';
 
-# For pdflatex ($pdf_mode = 1)
-$pdflatex = 'pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -shell-escape -synctex=1 %O %S';
+# Uncomment the following line to enable draft mode
+#$pre_tex_code = '\PassOptionsToClass{draft}{beamer}';
 
-# For latex with dvipdf ($pdf_mode = 3)
-$latex    = 'uplatex -interaction=nonstopmode -halt-on-error -file-line-error -shell-escape -synctex=1 %O %S';
+# Command for pdflatex ($pdf_mode = 1)
+$pdflatex = "pdflatex $common_opts %O %P";
+
+# Command for latex with dvipdf ($pdf_mode = 3)
+$latex    = "uplatex $common_opts %O %P";
 $dvipdf   = 'dvipdfmx %O -o %D %S';
 
-# For lualatex ($pdf_mode = 4)
-$lualatex = 'lualatex -interaction=nonstopmode -halt-on-error -file-line-error -shell-escape -synctex=1 %O %S';
+# Command for lualatex ($pdf_mode = 4)
+$lualatex = "lualatex $common_opts %O %P";
 
-# For xelatex ($pdf_mode = 5)
-$xelatex = 'xelatex -interaction=nonstopmode -halt-on-error -file-line-error -shell-escape -synctex=1 %O %S';
+# Command for xelatex ($pdf_mode = 5)
+$xelatex = "xelatex $common_opts %O %P";
 
 # BibTeX
 $bibtex = 'bibtex';
