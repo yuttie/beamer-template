@@ -70,7 +70,7 @@
 \definecolor{myaccent3}{HTML}{e29c9c}
 \definecolor{myaccent4}{HTML}{f3d8d8}
 
-\colorlet{mybg}{mybase6}
+\definecolor{mybg}{HTML}{ffffff}
 \colorlet{myfg}{mybase1}
 
 % Patterns
@@ -154,74 +154,86 @@
   \else%
     \begin{tikzpicture}[remember picture, overlay]%
       \clip (current page.north west) rectangle (current page.south east);
-      % Yellow ribbons
-      \begin{scope}[shift={(current page.north west)}]
-        \begin{scope}[shift={(2cm, -1cm)}]
-          \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-          \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \end{scope}
+      % Circles
+      \begin{scope}[shift={(current page.south west)}]
+        \foreach \y in { 0, 0.6928, ..., 15 }{
+          \foreach \x in { 0, 0.4, ..., 15 }
+            \fill[fill=mybase5!30!mybg,line width=0.8mm] ({\x}, {\y}) circle (1.0mm);
+          \foreach \x in { 0.2, 0.6, ..., 15 }
+            \fill[fill=mybase5!30!mybg,line width=0.8mm] ({\x}, {0.3464+\y}) circle (1.0mm);
+        }
       \end{scope}
-      \begin{scope}[shift={(current page.south east)}]
-        \begin{scope}[shift={(-2cm, 1cm)}]
-          \fill    [rotate=30, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-          \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-        \end{scope}
-      \end{scope}
-      % Box
       \begin{scope}
-        \fill [fill=mybase5] ($(current page.north west)!0.045!(current page.south east)$) rectangle ($(current page.north west)!0.955!(current page.south east)$);
-        \fill [fill=mybg] ([shift={(1mm,-1mm)}] $(current page.north west)!0.045!(current page.south east)$) rectangle ([shift={(-1mm,1mm)}] $(current page.north west)!0.955!(current page.south east)$);
-      \end{scope}
-      % Red ribbons
-      \begin{scope}[shift={(current page.north west)}]
-        \begin{scope}[shift={(2cm, -1cm)}]
-          \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-          \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        \clip ($(current page.north west)!0.045!(current page.south east)$) rectangle ($(current page.north west)!0.955!(current page.south east)$);
+        % Box
+        \begin{scope}
+          \fill [fill=mybase5] ($(current page.north west)!0.045!(current page.south east)$) rectangle ($(current page.north west)!0.955!(current page.south east)$);
+          \fill [fill=mybase6] ([shift={(1mm,-1mm)}] $(current page.north west)!0.045!(current page.south east)$) rectangle ([shift={(-1mm,1mm)}] $(current page.north west)!0.955!(current page.south east)$);
         \end{scope}
-      \end{scope}
-      \begin{scope}[shift={(current page.south east)}]
-        \begin{scope}[shift={(-2cm, 1cm)}]
-          \fill    [rotate=15, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
-          \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+        % Red ribbons
+        \begin{scope}[shift={(current page.north west)}]
+          \begin{scope}[shift={(2cm, -1cm)}]
+            \fill    [rotate=15, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+            \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \end{scope}
         \end{scope}
-      \end{scope}
-      % title
-      \node (title) at (current page.center) [anchor=center]
-      {
-        \begin{minipage}{\linewidth}
-          \centering
-          \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
-          \inserttitle\par%
-          \ifx\insertsubtitle\empty%
-          \else%
-            \linespread{1.0}\usebeamerfont{subtitle}\color{mybase2}%
-            \insertsubtitle\par%
-          \fi%
-        \end{minipage}
-      };
-      % author
-      \node (author) at (title.south) [below=5mm]
-      {
-        \begin{minipage}{\linewidth}
-          \centering
-          \linespread{0.8}\selectfont%
-          {\large\insertauthor\par}%
-          \ifx\insertinstitute\empty%
-          \else%
-            \vskip0.5em%
+        \begin{scope}[shift={(current page.south east)}]
+          \begin{scope}[shift={(-2cm, 1cm)}]
+            \fill    [rotate=15, fill=myaccent3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+            \pattern [rotate=15, pattern=my small dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \end{scope}
+        \end{scope}
+        % Yellow ribbons
+        \begin{scope}[shift={(current page.north west)}]
+          \begin{scope}[shift={(2cm, -1cm)}]
+            \fill    [rotate=30, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+            \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \end{scope}
+        \end{scope}
+        \begin{scope}[shift={(current page.south east)}]
+          \begin{scope}[shift={(-2cm, 1cm)}]
+            \fill    [rotate=30, fill=mymain3]                                (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+            \pattern [rotate=30, pattern=crosshatch dots, pattern color=white]  (-10cm, +0.5cm) rectangle +(+20cm, -1cm);
+          \end{scope}
+        \end{scope}
+        % title
+        \node (title) at (current page.center) [anchor=center]
+        {
+          \begin{minipage}{\linewidth}
+            \centering
+            \linespread{0.8}\usebeamerfont{title}\usebeamercolor[fg]{title}%
+            \inserttitle\par%
+            \ifx\insertsubtitle\empty%
+            \else%
+              \linespread{1.0}\usebeamerfont{subtitle}\color{mybase2}%
+              \insertsubtitle\par%
+            \fi%
+          \end{minipage}
+        };
+        % author
+        \node (author) at (title.south) [below=5mm]
+        {
+          \begin{minipage}{\linewidth}
+            \centering
             \linespread{0.8}\selectfont%
-            {\footnotesize\insertinstitute\par}%
-          \fi%
-        \end{minipage}
-      };
-      % date
-      \node (date) at (author.south) [below=5mm]
-      {
-        \begin{minipage}{\linewidth}
-          \centering
-          {\footnotesize\insertdate\par}%
-        \end{minipage}
-      };
+            {\large\insertauthor\par}%
+            \ifx\insertinstitute\empty%
+            \else%
+              \vskip0.5em%
+              \linespread{0.8}\selectfont%
+              {\footnotesize\insertinstitute\par}%
+            \fi%
+          \end{minipage}
+        };
+        % date
+        \node (date) at (author.south) [below=5mm]
+        {
+          \begin{minipage}{\linewidth}
+            \centering
+            {\footnotesize\insertdate\par}%
+          \end{minipage}
+        };
+      \end{scope}
     \end{tikzpicture}%
   \fi%
 }
