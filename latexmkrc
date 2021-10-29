@@ -2,7 +2,7 @@
 $pdf_mode = 4;
 
 # Common options for LaTeX engines
-$common_opts = '';
+$common_opts = '-shell-escape';
 
 # Uncomment the following line to enable draft mode
 #$pre_tex_code = '\PassOptionsToClass{draft}{beamer}';
