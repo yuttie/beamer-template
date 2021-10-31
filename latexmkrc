@@ -22,3 +22,6 @@ $xelatex = "xelatex $common_opts %O %P";
 
 # BibTeX
 $bibtex = 'bibtex';
+
+# Avoid wrapping lines of log output
+$ENV{'max_print_line'} = '2147483647';
