@@ -1,5 +1,6 @@
 # My LaTeX Beamer Template
 
+If you want to know what the template looks like, please look at [sample.pdf](sample.pdf).
 
 ## Requirements
 Compiler:
